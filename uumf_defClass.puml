@@ -1,4 +1,3 @@
-@startuml
 !unquoted function $defClass($classType="", $name="name", $stereotype="")
   !local $aux = $classType
   
@@ -97,5 +96,3 @@
   !$aux = $aux + ' :' + $dataType
   !return $aux + ') :void'
 !endfunction
-
-@enduml
