@@ -1,6 +1,5 @@
 !unquoted function $defClass($classType="", $name="name", $stereotype="")
   !local $aux = $classType
-  
   !if (%upper($classType) == "STANDARD")
     !$classType = ""
   !endif
@@ -14,46 +13,36 @@
 !endfunction
 !unquoted function $defClassAttribute($visibility = "-", $name="attribute" , $dataType = "T", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $constraint = "")
   !local $aux = $visibility
-
   !if ($name == "" || %lower($name) == "attribute")
     !$aux = $aux + "**attribute**"
   !else
     !$aux = $aux + $name 
   !endif
-  
   !if ($dataType != "")
     !$aux = $aux + " :" + $dataType
   !endif
-
   !if  (%lower($pk) == "true")
     !$aux = $aux + " {PK}"
   !endif
-
   !if (%lower($unique) == "true")
     !$aux = $aux + " {unique}"
   !endif
-
   !if (%lower($required) == "true")
     !$aux = $aux + " {required}"
   !endif
-
   !if (%lower($hidden) == "true")
     !$aux = $aux + " {hidden}"
   !endif
-
   !if ($calculate != "")
     !$aux = $aux +  ' {calculate = "' + $calculate + '"}'
   !endif
-
   !if ($constraint != "")
     !$aux = $aux + ' {constraint = "' + $constraint + '"}'
   !endif    
-
   !return $aux
 !endfunction
 !unquoted function $defClassSetWhere($logicOper="", $condition="")
   !local $aux = '+ setWhere( "'
-
   !$aux = $aux + $logicOper
   !if ($condition != "")
     ! $aux = $aux + $condition
@@ -62,7 +51,6 @@
       !$aux = $aux + " **error**"
     !endif
   !endif
-
   !return $aux + '" ) :void'
 !endfunction
 !unquoted function $defClassSetOrderBy($columnList="")
