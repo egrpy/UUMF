@@ -105,8 +105,4 @@
   !return $aux + ') :void'
 !endfunction
 
-$defClass($classType="abstract", $name="nombreClase", $stereotype="<<temporary>>")
-  $defClassAttribute($visibility = "-", $name="", $dataType = "T")
-$defClassEnd()
-
 @enduml
