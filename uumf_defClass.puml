@@ -66,12 +66,14 @@
 !unquoted function $defClassSetWhere($logicOper="", $condition="")
   !local $aux = '+ setWhere( "'
 
-  !$aux = $aux + $logicOper
   !if ($condition != "")
-    ! $aux = $aux + $condition
+    !if ($logicOper != "")
+      !$aux = $aux + $logicOper + " "
+    !endif
+    !$aux = $aux + $condition
   !else
     !if ($logicOper != "")
-      !$aux = $aux + " **error**"
+      !$aux = $aux + "**error**"
     !endif
   !endif
 
@@ -103,5 +105,10 @@
   !$aux = $aux + ' :' + $dataType
   !return $aux + ') :void'
 !endfunction
+
+$defClass($classType="abstract", $name="nombreClase", $stereotype="<<temporary>>")
+  $defClassAttribute($visibility = "-", $name="", $dataType = "T")
+  $defClassSetWhere($logicOper="AND", $condition="")
+$defClassEnd()
 
 @enduml
