@@ -1,0 +1,138 @@
+@startuml
+'Configuración
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+'skinparam linetype polyline
+skinparam shadowing true
+
+package "UI-UML Specification Framework (UUSF) v7" {
+  !startsub GUISpecification
+  abstract class GUISpecification <<framework>>{
+  }
+  !endsub
+
+  !startsub _visualObject
+  abstract class _visualObject extends GUISpecification {
+  }
+  !endsub
+
+  together {
+    !startsub screenPanel
+    abstract class screenPanel <<container>> extends _visualObject {
+      - title :string
+      - visualObject :_visualObject[0..*]
+      + actionsWhenOpen()
+      + actionsWhenClose()
+    }
+    !endsub
+
+    !startsub window
+    abstract class window <<window>> extends screenPanel {
+    }
+    !endsub
+
+    !startsub webpag
+    abstract class webPage <<webPage>> extends screenPanel{
+    }
+    !endsub
+  }
+
+  abstract class label extends _visualObject {
+      - label :string
+      + actionsWhenDisplay() :void
+  }
+
+  abstract class button extends _visualObject {
+    - label :string
+    + actionsWhenDisplay() :void
+    + clicked() :void()
+  }
+
+  abstract class editField extends _visualObject {
+    - value :T
+    + actionsWhenDisplay() :void
+    + setValue(value: T) : void
+    + getValue() : T
+  }
+
+  together {
+    abstract class menu extends _visualObject {
+      - options: MenuOption[1..*]
+      - title: string
+      + actionsWhenDisplay() :void
+      + selectedOption(option: menuOption): void
+    }
+
+    abstract class menuOption  {
+      - value: string
+    }
+  }
+
+  together {
+    abstract class dataControl <<dataControl>> extends _visualObject {
+      - layout :recordLayout
+      - data :dataSource
+      + read() :integer
+      + save() :Integer
+    }
+
+    '$defClassAttribute($visibility = "+", $name="tableA_id", $dataType = "T", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $constraint = "")
+    abstract class dataSource <<data>> {
+      - id :integer {constraint= "value>0"} {unique}
+      - field :fieldType
+      + newRow() :void
+      + deleteRow() :void
+      + insertRow() :void
+    }
+
+    abstract class fieldType {
+
+    }
+
+    enum recordLayout <<enumeration>> {
+        form
+        grid
+        reportFreeForm
+        reportTabular
+        reportGrouped
+        reportGraphic
+    }
+
+    note bottom of dataSource
+      The attributes of the dataSet can be complemented
+      with additional information using tagged values.
+      Example:
+      {label: "label"}, {constraint= "value > 0"},
+      {format= "#.##"}, {readonly}, {hidden}, {unique},
+      {required}, {pattern= "pattern"},
+      {formula= "formula"}, etc.
+      These features enhance the usability and integrity
+      of data in the user interface.
+    end note
+
+  }
+
+  note as N1
+    ¿cómo especificar la lógina subjacente?
+    Tratamiento de errores
+  end note
+}
+
+package dataLayer {
+  note as N1
+    This package represents the data persistence
+    layer, supporting relational, object-oriented,
+    document, graph, key-value, and other
+    NoSQL databases, based on application
+    requirements and data modeling needs
+  end note
+}
+
+menu "1" --> "0..*" menuOption
+dataControl --> recordLayout :type of view
+dataControl "1" *-- "1" dataSource
+dataControl --> dataLayer
+screenPanel *-- _visualObject
+dataSource *-- fieldType
+@enduml
