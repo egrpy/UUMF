@@ -7,11 +7,16 @@ skinparam linetype ortho
 skinparam shadowing true
 
 package "UI-UML Specification Framework (UUSF) v7" {
-  abstract class GUISpecification <<framework>>{
-  }
 
-  abstract class _visualObject extends GUISpecification {
-  }
+  @startuml (id=GUISpecification)
+    abstract class GUISpecification <<framework>>{
+    }
+  @enduml
+
+  @startuml (id=_visualObject)
+    abstract class _visualObject extends GUISpecification {
+    }
+  @enduml
 
   together {
     abstract class screenPanel <<container>> extends _visualObject {
