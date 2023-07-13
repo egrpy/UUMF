@@ -7,35 +7,26 @@ skinparam linetype ortho
 skinparam shadowing true
 
 package "UI-UML Specification Framework (UUSF) v7" {
-  !startsub GUISpecification
   abstract class GUISpecification <<framework>>{
   }
-  !endsub
 
-  !startsub _visualObject
   abstract class _visualObject extends GUISpecification {
   }
-  !endsub
 
   together {
-    !startsub screenPanel
     abstract class screenPanel <<container>> extends _visualObject {
       - title :string
       - visualObject :_visualObject[0..*]
       + actionsWhenOpen()
       + actionsWhenClose()
     }
-    !endsub
 
-    !startsub window
     abstract class window <<window>> extends screenPanel {
     }
-    !endsub
 
-    !startsub webpag
+
     abstract class webPage <<webPage>> extends screenPanel{
     }
-    !endsub
   }
 
   abstract class label extends _visualObject {
@@ -87,7 +78,6 @@ package "UI-UML Specification Framework (UUSF) v7" {
     }
 
     abstract class fieldType {
-
     }
 
     enum recordLayout <<enumeration>> {
