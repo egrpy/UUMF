@@ -1,0 +1,111 @@
+@startuml (id=GUISpecification)
+  abstract class GUISpecification <<framework>>{
+  }
+@enduml
+
+@startuml (id=_visualObject)
+  abstract class _visualObject extends GUISpecification {
+  }
+@enduml
+
+@startuml (id=screenPanel)
+  abstract class screenPanel <<container>> extends _visualObject {
+    - title :string
+    - visualObject :_visualObject[0..*]
+    + actionsWhenOpen()
+    + actionsWhenClose()
+  }
+@enduml
+
+@startuml (id=window)
+  abstract class window <<window>> extends screenPanel {
+  }
+@enduml
+
+@startuml (id=webPage)
+  abstract class webPage <<webPage>> extends screenPanel{
+  }
+@enduml
+
+@startuml (id=label)
+  abstract class label extends _visualObject {
+      - label :string
+      + actionsWhenDisplay() :void
+  }
+@enduml
+
+@startuml (id=button)
+  abstract class button extends _visualObject {
+    - label :string
+    + actionsWhenDisplay() :void
+    + clicked() :void()
+  }
+@enduml
+
+@startuml (id=editField)
+  abstract class editField extends _visualObject {
+    - value :T
+    + actionsWhenDisplay() :void
+    + setValue(value: T) : void
+    + getValue() : T
+  }
+@enduml
+
+@startuml (id=menu)
+  abstract class menu extends _visualObject {
+    - options: MenuOption[1..*]
+    - title: string
+    + actionsWhenDisplay() :void
+    + selectedOption(option: menuOption): void
+  }
+@enduml
+
+@startuml (id=menuOption)
+  abstract class menuOption  {
+    - value: string
+  }
+@enduml
+
+@startuml (id=dataControl)
+  abstract class dataControl <<dataControl>> extends _visualObject {
+    - layout :recordLayout
+    - data :dataSource
+    + read() :integer
+    + save() :Integer
+  }
+@enduml
+
+@startuml (id=dataSource)
+  abstract class dataSource <<data>> {
+    - id :integer {constraint= "value>0"} {unique}
+    - field :fieldType
+    + newRow() :void
+    + deleteRow() :void
+    + insertRow() :void
+  }
+@enduml
+
+@startuml (id=fieldType)
+  abstract class fieldType {
+  }
+@enduml
+
+@startuml (id=recordLayout)
+  enum recordLayout <<enumeration>> {
+      form
+      grid
+      reportFreeForm
+      reportTabular
+      reportGrouped
+      reportGraphic
+  }
+@enduml
+
+@startuml (id=relationships)
+  menu "1" --> "0..*" menuOption
+  dataControl --> recordLayout :type of view
+  dataControl "1" *-- "1" dataSource
+  dataControl --> dataLayer
+  screenPanel *-- _visualObject
+  dataSource *-- fieldType
+@enduml
