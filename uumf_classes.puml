@@ -12,8 +12,8 @@
   abstract class screenPanel <<container>> extends _visualObject {
     - title :string
     - visualObject :_visualObject[0..*]
-    + actionsWhenOpen()
-    + actionsWhenClose()
+    + actionsWhenOpen() :void
+    + actionsWhenClose() :void
   }
 @enduml
 
