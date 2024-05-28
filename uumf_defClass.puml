@@ -7,7 +7,7 @@
 '--------------------------------------------------------------------------------
 'Declare Label Class
 '--------------------------------------------------------------------------------
-!unquoted function defLabel($LabelName="")
+!unquoted function uumf_Label($LabelName="")
   !local $aux = ""
   !aux = $defClass($classType="", $name=$LabelName, $stereotype="<<label>>")
   !aux = $defClassAttribute($visibility = "-", $name="label", $dataType = ":string")
@@ -19,8 +19,8 @@
 'Example
 '--------------------------------------------------------------------------------
 $defClass($classType="abstract", $name="ClassName", $stereotype="<<temporary>>")
-  $defClassAttribute($visibility = "-", $name="", $dataType = "T")
-  $defClassSetWhere($logicOper="AND", $condition="")
+  $defClassAttribute($visibility = "-", $name="v1", $dataType = "T")
+  $defClassSetWhere($logicOper="AND", $condition="v1 is not null")
 $defClassEnd()
 
 @enduml
