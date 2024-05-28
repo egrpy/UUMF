@@ -10,8 +10,8 @@
 !unquoted function $uumf_Label($LabelName="")
   !local $aux = ""
   !aux = $defClass($classType="", $name=$LabelName, $stereotype="<<label>>")
-  !aux = $defClassAttribute($visibility = "-", $name="label", $dataType = ":string")
-  !aux = $defClassEnd()
+  !aux = " " + $defClassAttribute($visibility = "-", $name="label", $dataType = ":string")
+  !aux = " " + $defClassEnd()
   !return $aux
 !endfunction
 
