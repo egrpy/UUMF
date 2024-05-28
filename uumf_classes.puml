@@ -61,7 +61,7 @@
 @enduml
 
 @startuml (id=menuOption)
-  abstract class <<menuOption>> menuOption  {
+  abstract class menuOption <<menuOption>> {
     - value: string
   }
 @enduml
