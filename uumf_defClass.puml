@@ -1,137 +1,15 @@
 @startuml
+'--------------------------------------------------------------------------------
+'Script for Class Declaration
+'--------------------------------------------------------------------------------
+!include https://raw.githubusercontent.com/egrpy/SqlUMLSpec/main/sqlUMLSpecFunctions.puml
 
 '--------------------------------------------------------------------------------
-'Colorize Text
+'Declare Label Class
 '--------------------------------------------------------------------------------
-!unquoted function $textColor($parameter, $color="red")
-  '$color= Red, Blue, Green,... 
-  !return %chr(34) + "<color:" + $color + ">" + $parameter + "</color>" +%chr(34)
-!endfunction
-
-'--------------------------------------------------------------------------------
-'Declare a Class
-'--------------------------------------------------------------------------------
-!unquoted function $defClass($classType="", $name="", $stereotype="")
-  !local $aux = %lower($classType)
-  
-  !if ($aux != "" || $aux != "abstract")
-    !$classType = ""
-  !endif
-
-  !if ($name == "")
-    !$name = $textColor("name", "Red")
-  !endif
-  
-  !return $classType + " class " + $name + " " + $stereotype + "{"
-!endfunction
-
-'--------------------------------------------------------------------------------
-'Close a Class Declare
-'--------------------------------------------------------------------------------
-!function $defClassEnd()
-  !return "}"
-!endfunction
-
-'--------------------------------------------------------------------------------
-'Declare a Class Attribute
-'--------------------------------------------------------------------------------
-!unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $constraint = "")
-  !local $aux = $visibility
-
-  !if ($name == "")
-    !$aux = $aux + $textColor("missingAttribute","red")
-  !else
-    !$aux = $aux + $name 
-  !endif
-  
-  !if ($dataType != "")
-    !$aux = $aux + " :" + $dataType
-  !endif
-
-  !if  (%lower($pk) == "true")
-    !$aux = $aux + " {PK}"
-  !endif
-
-  !if (%lower($unique) == "true")
-    !$aux = $aux + " {unique}"
-  !endif
-
-  !if (%lower($required) == "true")
-    !$aux = $aux + " {required}"
-  !endif
-
-  !if (%lower($hidden) == "true")
-    !$aux = $aux + " {hidden}"
-  !endif
-
-  !if ($calculate != "")
-    !$aux = $aux +  ' {calculate = "' + $calculate + '"}'
-  !endif
-
-  !if ($constraint != "")
-    !$aux = $aux + ' {constraint = "' + $constraint + '"}'
-  !endif    
-
-  !return $aux
-!endfunction
-
-'--------------------------------------------------------------------------------
-'Declare a Where sentence as Method of the Class
-'--------------------------------------------------------------------------------
-!unquoted function $defClassSetWhere($logicOper="", $condition="")
-  !local $aux = '+ setWhere( "'
-
-  !if ($condition != "")
-    !if ($logicOper != "")
-      !$aux = $aux + $logicOper + " "
-    !endif
-    !$aux = $aux + $condition
-  !else
-    !if ($logicOper != "")
-      !$aux = $aux + "**error**"
-    !endif
-  !endif
-
-  !return $aux + '" ) :void'
-!endfunction
-
-'--------------------------------------------------------------------------------
-'Declare an Order By sentence as Method of the Class
-'--------------------------------------------------------------------------------
-!unquoted function $defClassSetOrderBy($columnList="")
-  !local $aux = '+ setOrderBy( "'
-  !$aux = $aux + $columnList
-  !return $aux + '" ) :void'
-!endfunction
-
-'--------------------------------------------------------------------------------
-'Declare a Group By sentence as Method of the Class
-'--------------------------------------------------------------------------------
-!unquoted function $defClassSetGroupBy($columnList="")
-  !local $aux = '+ setGroupBy( "'
-  !$aux = $aux + $columnList
-  !return $aux + '" ) :void'
-!endfunction
-
-'--------------------------------------------------------------------------------
-'Declare a Having sentence as Method of the Class
-'--------------------------------------------------------------------------------
-!unquoted function $defClassSetHaving($condition="")
-  !local $aux = '+ setHaving( "'
-  !$aux = $aux + $condition
-  !return $aux + '" ) :void'
-!endfunction
-
-'--------------------------------------------------------------------------------
-'Declare a Parameter of the Class
-'--------------------------------------------------------------------------------
-!unquoted function $defClassSetParameter($methodName="", $parameterName="", $dataType="T" )
-  !local $aux = '- <<input>> '
-  !$aux = $aux + $methodName + '('
-  !$aux = $aux + $parameterName
-  !$aux = $aux + ' :' + $dataType
-  !return $aux + ') :void'
-!endfunction
+$defClass($classType="", $name="", $stereotype="<<label>>")
+  $defClassAttribute($visibility = "-", $name="label", $dataType = ":string")
+$defClassEnd()
 
 '--------------------------------------------------------------------------------
 'Example
