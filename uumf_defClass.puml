@@ -7,9 +7,9 @@
 '--------------------------------------------------------------------------------
 'Declare Label Class
 '--------------------------------------------------------------------------------
-!unquoted function defLabel($name="")
+!unquoted function defLabel($LabelName="")
   !local $aux = ""
-  !aux = $defClass($classType="", $name="", $stereotype="<<label>>")
+  !aux = $defClass($classType="", $name=$LabelName, $stereotype="<<label>>")
   !aux = $defClassAttribute($visibility = "-", $name="label", $dataType = ":string")
   !aux = $defClassEnd()
   !return $aux
