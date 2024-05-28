@@ -1,10 +1,16 @@
 @startuml
 
+'--------------------------------------------------------------------------------
+'Colorize Text
+'--------------------------------------------------------------------------------
 !unquoted function $textColor($parameter, $color="red")
   '$color= Red, Blue, Green,... 
   !return %chr(34) + "<color:" + $color + ">" + $parameter + "</color>" +%chr(34)
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare a Class
+'--------------------------------------------------------------------------------
 !unquoted function $defClass($classType="", $name="", $stereotype="")
   !local $aux = %lower($classType)
   
@@ -19,10 +25,16 @@
   !return $classType + " class " + $name + " " + $stereotype + "{"
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Close a Class Declare
+'--------------------------------------------------------------------------------
 !function $defClassEnd()
   !return "}"
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare a Class Attribute
+'--------------------------------------------------------------------------------
 !unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $constraint = "")
   !local $aux = $visibility
 
@@ -63,6 +75,9 @@
   !return $aux
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare a Where sentence as Method of the Class
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetWhere($logicOper="", $condition="")
   !local $aux = '+ setWhere( "'
 
@@ -80,24 +95,36 @@
   !return $aux + '" ) :void'
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare an Order By sentence as Method of the Class
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetOrderBy($columnList="")
   !local $aux = '+ setOrderBy( "'
   !$aux = $aux + $columnList
   !return $aux + '" ) :void'
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare a Group By sentence as Method of the Class
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetGroupBy($columnList="")
   !local $aux = '+ setGroupBy( "'
   !$aux = $aux + $columnList
   !return $aux + '" ) :void'
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare a Having sentence as Method of the Class
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetHaving($condition="")
   !local $aux = '+ setHaving( "'
   !$aux = $aux + $condition
   !return $aux + '" ) :void'
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare a Parameter of the Class
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetParameter($methodName="", $parameterName="", $dataType="T" )
   !local $aux = '- <<input>> '
   !$aux = $aux + $methodName + '('
@@ -106,7 +133,10 @@
   !return $aux + ') :void'
 !endfunction
 
-$defClass($classType="abstract", $name="nombreClase", $stereotype="<<temporary>>")
+'--------------------------------------------------------------------------------
+'Example
+'--------------------------------------------------------------------------------
+$defClass($classType="abstract", $name="ClassName", $stereotype="<<temporary>>")
   $defClassAttribute($visibility = "-", $name="", $dataType = "T")
   $defClassSetWhere($logicOper="AND", $condition="")
 $defClassEnd()
