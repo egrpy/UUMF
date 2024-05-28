@@ -28,14 +28,14 @@
 @enduml
 
 @startuml (id=label)
-  abstract class label extends _visualObject {
+  abstract class label <<label>> extends _visualObject {
       - label :string
       + actionsWhenDisplay() :void
   }
 @enduml
 
 @startuml (id=button)
-  abstract class button extends _visualObject {
+  abstract class button <<button>> extends _visualObject {
     - label :string
     + actionsWhenDisplay() :void
     + clicked() :void()
@@ -43,7 +43,7 @@
 @enduml
 
 @startuml (id=editField)
-  abstract class editField extends _visualObject {
+  abstract class editField <<editField>> extends _visualObject {
     - value :T
     + actionsWhenDisplay() :void
     + setValue(value: T) : void
@@ -52,7 +52,7 @@
 @enduml
 
 @startuml (id=menu)
-  abstract class menu extends _visualObject {
+  abstract class menu <<menu>> extends _visualObject {
     - options: MenuOption[1..*]
     - title: string
     + actionsWhenDisplay() :void
@@ -61,7 +61,7 @@
 @enduml
 
 @startuml (id=menuOption)
-  abstract class menuOption  {
+  abstract class <<menuOption>> menuOption  {
     - value: string
   }
 @enduml
