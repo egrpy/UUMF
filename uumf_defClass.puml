@@ -11,6 +11,24 @@
   $defClass($classType = "", $name = $LabelName, $stereotype = "<<label>>", $color = "")
   $defClassAttribute($visibility = "-", $name="label", $dataType = "string")
   $defClassEnd()
-!endfunction
+!endprocedure
+
+'--------------------------------------------------------------------------------
+'Declare Button Class 
+'--------------------------------------------------------------------------------
+!unquoted procedure $uumf_button($LabelName="LabelName")
+  $defClass($classType = "", $name = $LabelName, $stereotype = "<<button>>", $color = "")
+  $defClassAttribute($visibility = "-", $name="label", $dataType = "string")
+  $defClassEnd()
+!endprocedure
+
+'--------------------------------------------------------------------------------
+'Declare Button Class 
+'--------------------------------------------------------------------------------
+!unquoted procedure $uumf_button($LabelName="LabelName")
+  $defClass($classType = "", $name = $LabelName, $stereotype = "<<button>>", $color = "")
+  $defClassAttribute($visibility = "-", $name="label", $dataType = "string")
+  $defClassEnd()
+!endprocedure
 
 @enduml
