@@ -27,7 +27,7 @@
 '--------------------------------------------------------------------------------
 !unquoted procedure $uumf_editField($fieldName = "FieldName", $dataType = "T", $value = "")
   $defClass($classType = "", $name = $fieldName, $stereotype = "<<editField>>", $color = "")
-  $defClassAttribute($visibility = "-", $name="value", $dataType = $dataType)
+  $defClassAttribute($visibility = "-", $name="defaultValue", $dataType = $dataType)
   $defClassEnd()
 !endprocedure
 
