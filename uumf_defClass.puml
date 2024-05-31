@@ -10,6 +10,7 @@
 !unquoted procedure $uumf_label($labelName = "LabelName")
   $defClass($classType = "", $name = $labelName, $stereotype = "<<label>>", $color = "")
   $defClassAttribute($visibility = "-", $name = "label", $dataType = "string")
++ actionsWhenDisplay() :void
   $defClassEnd()
 !endprocedure
 
@@ -29,6 +30,9 @@
 !unquoted procedure $uumf_editField($fieldName = "FieldName", $dataType = "T")
   $defClass($classType = "", $name = $fieldName, $stereotype = "<<editField>>", $color = "")
   $defClassAttribute($visibility = "-", $name="value", $dataType = $dataType)
+  + actionsWhenDisplay() :void
+  + setValue(value: T) : void
+  + getValue() : T
   $defClassEnd()
 !endprocedure
 
