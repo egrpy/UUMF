@@ -7,12 +7,10 @@
 '--------------------------------------------------------------------------------
 'Declare Label Class
 '--------------------------------------------------------------------------------
-!unquoted function $uumf_Label($LabelName="")
-  !local $aux = ""
-  !aux = $defClass($classType="", $name='$LabelName', $stereotype="<<label>>")
-  !aux = " " + $defClassAttribute($visibility = "-", $name="label", $dataType = ":string")
-  !aux = " " + $defClassEnd()
-  !return $aux
+!unquoted procedure $uumf_Label($LabelName="LabelName")
+  $defClass($classType = "", $name = $LabelName, $stereotype = "<<label>>", $color = "")
+  $defClassAttribute($visibility = "-", $name="label", $dataType = "string")
+  $defClassEnd()
 !endfunction
 
 @enduml
