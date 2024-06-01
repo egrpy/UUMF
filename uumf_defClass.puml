@@ -10,7 +10,7 @@
 !unquoted procedure $uumf_label($labelName = "LabelName")
   $defClass($classType = "", $name = $labelName, $stereotype = "<<label>>", $color = "")
   $defClassAttribute($visibility = "-", $name = "label", $dataType = "string")
-+ actionsWhenDisplay() :void
+  + actionsWhenDisplay() :void
   $defClassEnd()
 !endprocedure
 
@@ -20,6 +20,8 @@
 !unquoted procedure $uumf_button($labelName = "LabelName")
   $defClass($classType = "", $name = $labelName, $stereotype = "<<button>>", $color = "")
   $defClassAttribute($visibility = "-", $name = "label", $dataType = "string")
+  + actionsWhenDisplay() :void
+  + clicked() :void
   $defClassEnd()
 !endprocedure
 
