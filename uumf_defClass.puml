@@ -44,7 +44,7 @@
 'Falta agregar default value
 !unquoted procedure $uumf_window($windowName = "WindowName", $title = "Title of Window")
   $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = "")
-    $defClassAttribute($visibility = "-", $name = "title", $dataType = "string")
+    $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $daultValue = $title)
     + actionsWhenOpen() :void
     + actionsWhenClose() : void
     + settitle(%string($title) : void
