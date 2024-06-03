@@ -47,7 +47,7 @@
     $defClassAttribute($visibility = "-", $name = "title", $dataType = "string")
     + actionsWhenOpen() :void
     + actionsWhenClose() : void
-    - settitle($title) : void
+    + settitle() : void
   $defClassEnd()
 !endprocedure
 
