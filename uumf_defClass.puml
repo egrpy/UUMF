@@ -47,7 +47,7 @@
     $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $daultValue = $title)
     + actionsWhenOpen() :void
     + actionsWhenClose() : void
-    + settitle(%string($title) : void
+    '+ settitle(%string($title) : void
   $defClassEnd()
 !endprocedure
 
