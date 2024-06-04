@@ -63,7 +63,13 @@
 'Declare Window Class 
 '--------------------------------------------------------------------------------
 'Falta agregar default value
-!unquoted procedure $uumf_window($windowName = "WindowName", $title = "Title of Window")
+!unquoted procedure $uumf_window($name = "WindowName", $title = "Title of Window")
+  !local $windowName = $name
+
+  !if ($windowName == "" || $windowName == "WindowName")
+    !$windowName = $textColor("windowName", "Red")
+  !endif
+
   $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $daultValue = $title)
     + actionsWhenOpen() :void
