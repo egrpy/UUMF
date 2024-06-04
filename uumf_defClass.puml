@@ -93,7 +93,6 @@
   $defClassEnd()
 !endprocedure
 
-
 '--------------------------------------------------------------------------------
 'Declare Data Control
 '--------------------------------------------------------------------------------
@@ -109,9 +108,16 @@
 !endprocedure
 
 '--------------------------------------------------------------------------------
+'Declare Association
+'--------------------------------------------------------------------------------
+!procedure $uumf_associtarion($class1 = "A", $class2 = "B", $arrowHead="-->")
+  $class1 $arrowHead $class2
+!endprocedure
+
+'--------------------------------------------------------------------------------
 'Declare Data Control
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_dataControl($name = "dataControlName", $recordlayout = "form")
+!unquoted procedure $uumf_dataControlx($name = "dataControlName", $recordlayout = "form")
   !local $dataControlName = $name
 
   !if ($dataControlName == "" || $dataControlName == "dataControlName")
@@ -131,6 +137,11 @@
     + actionsWhenOpen() :void
     + actionsWhenClose() : void
   $defClassEnd()
+  
+  !if ($recordlayout == "** error Record Layout **")
+    $uumf_recordLayout()
+  !endif
+
 !endprocedure
 
 @enduml
