@@ -97,7 +97,7 @@
 '--------------------------------------------------------------------------------
 'Declare Data Control
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_recordLayout
+!procedure $uumf_recordLayout()
   class recordLayout <<enumeration>> {
       -form
       -grid
