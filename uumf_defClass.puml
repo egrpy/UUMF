@@ -7,7 +7,9 @@
 '--------------------------------------------------------------------------------
 'Declare Label Class
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_label($labelName = "labelName", $labelDisplay = "Label Display")
+!unquoted procedure $uumf_label($name = "labelName", $labelDisplay = "Label Display")
+
+  !$labelName = $name
 
   !if ($labelName == "" || $labelName == "labelName")
     !$labelName = $textColor("labelName", "Red")
@@ -22,7 +24,10 @@
 '--------------------------------------------------------------------------------
 'Declare Button Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_button($buttonName = "buttonName", $labelDisplay = "Label Display")
+!unquoted procedure $uumf_button($name = "buttonName", $labelDisplay = "Label Display")
+
+  !$buttonName = $name
+
   !if ($buttonName == "" || $buttonName == "buttonName")
     !$buttonName = $textColor("buttonName", "Red")
   !endif
@@ -37,13 +42,17 @@
 '--------------------------------------------------------------------------------
 'Declare Edit Field Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_editField($fieldName = "FieldName", $dataType = "T", $initialValue = "")
+!unquoted procedure $uumf_editField($name = "FieldName", $dataType = "T", $initialValue = "")
+
+  !$fieldName = $name
+  !$fieldDataType = $dataType
+
   !if ($fieldName == "" || $fieldName == "FieldName")
     !$fieldName = $textColor("fieldName", "Red")
   !endif
 
   $defClass($classType = "", $name = $fieldName, $stereotype = "<<editField>>", $color = "")
-    $defClassAttribute($visibility = "-", $name="value", $dataType = $dataType, $defaultValue = $initialValue)
+    $defClassAttribute($visibility = "-", $name="value", $dataType = $fieldDataType, $defaultValue = $initialValue)
     + actionsWhenDisplay() :void
     + setValue(value: T) : void
     + getValue() : T
