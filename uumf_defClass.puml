@@ -8,13 +8,13 @@
 'Declare Label Class
 '--------------------------------------------------------------------------------
 !unquoted procedure $uumf_label($name = "labelName", $labelDisplay = "Label Display")
-
-  !$labelName = $name
+  !local $labelName = $name
 
   !if ($labelName == "" || $labelName == "labelName")
     !$labelName = $textColor("labelName", "Red")
   !endif
 
+  'Create a class
   $defClass($classType = "", $name = $labelName, $stereotype = "<<label>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "label", $dataType = "string", $defaultValue = $labelDisplay)
     + actionsWhenDisplay() :void
@@ -25,13 +25,13 @@
 'Declare Button Class 
 '--------------------------------------------------------------------------------
 !unquoted procedure $uumf_button($name = "buttonName", $labelDisplay = "Label Display")
-
-  !$buttonName = $name
+  !local $buttonName = $name
 
   !if ($buttonName == "" || $buttonName == "buttonName")
     !$buttonName = $textColor("buttonName", "Red")
   !endif
 
+  'Create a class
   $defClass($classType = "", $name = $buttonName, $stereotype = "<<button>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "label", $dataType = "string", $defaultValue = $labelDisplay)
     + actionsWhenDisplay() :void
@@ -43,14 +43,14 @@
 'Declare Edit Field Class 
 '--------------------------------------------------------------------------------
 !unquoted procedure $uumf_editField($name = "FieldName", $dataType = "T", $initialValue = "")
-
-  !$fieldName = $name
-  !$fieldDataType = $dataType
+  !local $fieldName = $name
+  !local $fieldDataType = $dataType
 
   !if ($fieldName == "" || $fieldName == "FieldName")
     !$fieldName = $textColor("fieldName", "Red")
   !endif
 
+  'Create a class
   $defClass($classType = "", $name = $fieldName, $stereotype = "<<editField>>", $color = "")
     $defClassAttribute($visibility = "-", $name="value", $dataType = $fieldDataType, $defaultValue = $initialValue)
     + actionsWhenDisplay() :void
