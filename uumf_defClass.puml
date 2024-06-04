@@ -9,7 +9,7 @@
 '--------------------------------------------------------------------------------
 !unquoted procedure $uumf_label($labelName = "labelName", $labelDisplay = "Label Display")
   $defClass($classType = "", $name = $labelName, $stereotype = "<<label>>", $color = "")
-    $defClassAttribute($visibility = "-", $name = "label", $dataType = "string", $defaultDate = $labelDisplay)
+    $defClassAttribute($visibility = "-", $name = "label", $dataType = "string", $defaultValue = $labelDisplay)
     + actionsWhenDisplay() :void
   $defClassEnd()
 !endprocedure
