@@ -93,6 +93,21 @@
   $defClassEnd()
 !endprocedure
 
+
+'--------------------------------------------------------------------------------
+'Declare Data Control
+'--------------------------------------------------------------------------------
+!unquoted procedure $uumf_recordLayout
+  class recordLayout <<enumeration>> {
+      -form
+      -grid
+      -report free form
+      -report tabular
+      -report grouped
+      -report graphic
+  }
+!endprocedure
+
 '--------------------------------------------------------------------------------
 'Declare Data Control
 '--------------------------------------------------------------------------------
