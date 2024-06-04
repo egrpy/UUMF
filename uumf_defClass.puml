@@ -37,7 +37,7 @@
 '--------------------------------------------------------------------------------
 'Declare Edit Field Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_editField($fieldName = "FieldName", $dataType = "T", $initialValue = %null())
+!unquoted procedure $uumf_editField($fieldName = "FieldName", $dataType = "T", $initialValue = "")
   !if ($fieldName == "" || $fieldName == "FieldName")
     !$fieldName = $textColor("fieldName", "Red")
   !endif
