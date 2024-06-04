@@ -108,10 +108,10 @@
 !endprocedure
 
 '--------------------------------------------------------------------------------
-'Declare Association
+'Declare Relationships
 '--------------------------------------------------------------------------------
-!procedure $uumf_associtarion($class1 = "A", $class2 = "B", $arrowHead="-->")
-  $class1 $arrowHead $class2
+!procedure $uumf_associtarion($class1 = "A", $class2 = "B", $type="-->")
+  $class1 $type $class2
 !endprocedure
 
 '--------------------------------------------------------------------------------
