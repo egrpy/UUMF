@@ -37,13 +37,13 @@
 '--------------------------------------------------------------------------------
 'Declare Edit Field Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_editField($fieldName = "FieldName", $dataType = "T", $defaultValue = "")
+!unquoted procedure $uumf_editField($fieldName = "FieldName", $dataType = "T", $initialValue = %null())
   !if ($fieldName == "" || $fieldName == "FieldName")
     !$fieldName = $textColor("fieldName", "Red")
   !endif
 
   $defClass($classType = "", $name = $fieldName, $stereotype = "<<editField>>", $color = "")
-    $defClassAttribute($visibility = "-", $name="value", $dataType = $dataType, $defaultValue = $labelDisplay)
+    $defClassAttribute($visibility = "-", $name="value", $dataType = $dataType, $defaultValue = $initialValue)
     + actionsWhenDisplay() :void
     + setValue(value: T) : void
     + getValue() : T
