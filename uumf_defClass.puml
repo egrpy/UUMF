@@ -62,7 +62,6 @@
 '--------------------------------------------------------------------------------
 'Declare Window Class 
 '--------------------------------------------------------------------------------
-'Falta agregar default value
 !unquoted procedure $uumf_window($name = "WindowName", $title = "Title")
   !local $windowName = $name
 
@@ -78,9 +77,8 @@
 !endprocedure
 
 '--------------------------------------------------------------------------------
-'Declare Web Class 
+'Declare WebPage Class 
 '--------------------------------------------------------------------------------
-'Falta agregar default value
 !unquoted procedure $uumf_webPage($name = "WebPageName", $title = "Title")
   !local $webPageName = $name
 
@@ -95,5 +93,35 @@
   $defClassEnd()
 !endprocedure
 
+'--------------------------------------------------------------------------------
+'Declare Data Control
+'--------------------------------------------------------------------------------
+!unquoted procedure $uumf_dataControl($name = "dataControlName", $recordlayout = "form")
+  !local $dataControlName = $name
+
+  !if ($dataControlName == "" || $dataControlName == "dataControlName")
+    !$dataControlName = $textColor("dataControlName", "Red")
+  !endif
+
+  !if ($recordlayout == "" || $dataControlName == "dataControlName")
+    !$dataControlName = $textColor("dataControlName", "Red")
+  !endif
+
+  !if (%lower($recordlayout) == "form" || 
+       %lower($recordlayout) == "grid" || 
+       %lower($recordlayout) == "reportFreeForm" ||
+       %lower($recordlayout) == "reportTabular" ||
+       %lower($recordlayout) == "reportGrouped")
+       
+  !else
+    !$recordlayout = $recordlayout + "**erroRecordLaout**"
+  !endif
+
+  $defClass($classType = "", $name = $dataControlName, $stereotype = "<<dataControl>>", $color = "")
+    $defClassAttribute($visibility = "-", $name = "layout", $dataType = "recordLayout", $defaultValue = $recordlayout)
+    + actionsWhenOpen() :void
+    + actionsWhenClose() : void
+  $defClassEnd()
+!endprocedure
 
 @enduml
