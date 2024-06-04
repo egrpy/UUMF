@@ -77,5 +77,23 @@
   $defClassEnd()
 !endprocedure
 
+'--------------------------------------------------------------------------------
+'Declare Web Class 
+'--------------------------------------------------------------------------------
+'Falta agregar default value
+!unquoted procedure $uumf_webPage($name = "WebPageName", $title = "Title")
+  !local $webPageName = $name
+
+  !if ($webPageName == "" || $webPageName == "WebPageName")
+    !$webPageName = $textColor("webPageName", "Red")
+  !endif
+
+  $defClass($classType = "", $name = $webPageName, $stereotype = "<<webPage>>", $color = "")
+    $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
+    + actionsWhenOpen() :void
+    + actionsWhenClose() : void
+  $defClassEnd()
+!endprocedure
+
 
 @enduml
