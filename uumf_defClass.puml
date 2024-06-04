@@ -7,11 +7,7 @@
 '--------------------------------------------------------------------------------
 'Declare Label Class
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_label($name = "labelName", $labelDisplay = "Label Display")
-  !if ($name == "" ||  $name == "labelName")
-    !$name = $textColor("name", "Red")
-  !endif
-
+!unquoted procedure $uumf_label($labelName = "labelName", $labelDisplay = "Label Display")
   $defClass($classType = "", $name = $labelName, $stereotype = "<<label>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "label", $dataType = "string", $defaultValue = $labelDisplay)
     + actionsWhenDisplay() :void
