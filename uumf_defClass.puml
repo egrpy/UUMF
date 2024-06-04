@@ -24,7 +24,7 @@
 '--------------------------------------------------------------------------------
 !unquoted procedure $uumf_button($buttonName = "buttonName", $labelDisplay = "Label Display")
   !if ($buttonName == "" || $buttonName == "buttonName")
-    !$labelName = $textColor("buttonName", "Red")
+    !$buttonName = $textColor("buttonName", "Red")
   !endif
 
   $defClass($classType = "", $name = $buttonName, $stereotype = "<<button>>", $color = "")
