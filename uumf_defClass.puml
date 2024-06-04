@@ -37,10 +37,13 @@
 '--------------------------------------------------------------------------------
 'Declare Edit Field Class 
 '--------------------------------------------------------------------------------
-'Falta agregar default value
-!unquoted procedure $uumf_editField($fieldName = "FieldName", $dataType = "T")
+!unquoted procedure $uumf_editField($fieldName = "FieldName", $dataType = "T", $defaultValue = "")
+  !if ($fieldName == "" || $fieldName == "FieldName")
+    !$fieldName = $textColor("fieldName", "Red")
+  !endif
+
   $defClass($classType = "", $name = $fieldName, $stereotype = "<<editField>>", $color = "")
-    $defClassAttribute($visibility = "-", $name="value", $dataType = $dataType)
+    $defClassAttribute($visibility = "-", $name="value", $dataType = $dataType, $defaultValue = $labelDisplay)
     + actionsWhenDisplay() :void
     + setValue(value: T) : void
     + getValue() : T
