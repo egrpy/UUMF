@@ -7,9 +7,9 @@
 '--------------------------------------------------------------------------------
 'Declare Label Class
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_label($labelName = "LabelName")
+!unquoted procedure $uumf_label($labelName = "labelName", $labelDisplay = "Label Display")
   $defClass($classType = "", $name = $labelName, $stereotype = "<<label>>", $color = "")
-    $defClassAttribute($visibility = "-", $name = "label", $dataType = "string")
+    $defClassAttribute($visibility = "-", $name = "label", $dataType = "string", $defaultDate = $labelDisplay)
     + actionsWhenDisplay() :void
   $defClassEnd()
 !endprocedure
