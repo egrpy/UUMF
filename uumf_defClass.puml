@@ -107,12 +107,8 @@
     !$dataControlName = $textColor("dataControlName", "Red")
   !endif
 
-  !if (%lower($recordlayout) != "form") && 
-      (%lower($recordlayout) != "grid") && 
-      (%lower($recordlayout) != "reportFreeForm") && 
-      (%lower($recordlayout) != "reportTabular") && 
-      (%lower($recordlayout) != "reportGrouped")
-    !$recordlayout = "** error Record Layout **"
+  !if (%lower($recordlayout) != "form") && (%lower($recordlayout) != "grid") && (%lower($recordlayout) != "reportFreeForm") && (%lower($recordlayout) != "reportTabular") && (%lower($recordlayout) != "reportGrouped")
+      !$recordlayout = "** error Record Layout **"
   !endif
 
   $defClass($classType = "", $name = $dataControlName, $stereotype = "<<dataControl>>", $color = "")
