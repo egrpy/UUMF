@@ -63,7 +63,7 @@
 'Declare Window Class 
 '--------------------------------------------------------------------------------
 'Falta agregar default value
-!unquoted procedure $uumf_window($name = "WindowName", $title = "Title of Window")
+!unquoted procedure $uumf_window($name = "WindowName", $title = "Title")
   !local $windowName = $name
 
   !if ($windowName == "" || $windowName == "WindowName")
