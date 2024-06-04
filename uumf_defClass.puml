@@ -71,7 +71,7 @@
   !endif
 
   $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = "")
-    $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
+    $defClassAttribute($visibility = "-", $name = "title", $dataType = "string")
     + actionsWhenOpen() :void
     + actionsWhenClose() : void
   $defClassEnd()
