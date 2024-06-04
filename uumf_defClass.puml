@@ -117,7 +117,7 @@
 '--------------------------------------------------------------------------------
 'Declare Data Control
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_dataControlx($name = "dataControlName", $recordlayout = "form")
+!unquoted procedure $uumf_dataControl($name = "dataControlName", $recordlayout = "form")
   !local $dataControlName = $name
 
   !if ($dataControlName == "" || $dataControlName == "dataControlName")
