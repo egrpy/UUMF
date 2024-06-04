@@ -52,7 +52,7 @@
 
   'Create a class
   $defClass($classType = "", $name = $fieldName, $stereotype = "<<editField>>", $color = "")
-    $defClassAttribute($visibility = "-", $name="value", $dataType = $fieldDataType, $defaultValue = $initialValue)
+    $defClassAttribute($visibility = "-", $name = "value", $dataType = $fieldDataType, $defaultValue = $initialValue)
     + actionsWhenDisplay() :void
     + setValue(value: T) : void
     + getValue() : T
@@ -71,7 +71,7 @@
   !endif
 
   $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = "")
-    $defClassAttribute($visibility = "-", $name = "title", $dataType = "string")
+    $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
     + actionsWhenOpen() :void
     + actionsWhenClose() : void
   $defClassEnd()
