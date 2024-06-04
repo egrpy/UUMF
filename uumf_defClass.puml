@@ -8,9 +8,11 @@
 'Declare Label Class
 '--------------------------------------------------------------------------------
 !unquoted procedure $uumf_label($labelName = "labelName", $labelDisplay = "Label Display")
+
   !if ($labelName == "" || $labelName == "labelName")
     !$labelName = $textColor("labelName", "Red")
   !endif
+
   $defClass($classType = "", $name = $labelName, $stereotype = "<<label>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "label", $dataType = "string", $defaultValue = $labelDisplay)
     + actionsWhenDisplay() :void
@@ -20,9 +22,13 @@
 '--------------------------------------------------------------------------------
 'Declare Button Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_button($labelName = "LabelName")
-  $defClass($classType = "", $name = $labelName, $stereotype = "<<button>>", $color = "")
-    $defClassAttribute($visibility = "-", $name = "label", $dataType = "string")
+!unquoted procedure $uumf_button($buttonName = "buttonName", $labelDisplay = "Label Display")
+  !if ($buttonName == "" || $buttonName == "buttonName")
+    !$labelName = $textColor("buttonName", "Red")
+  !endif
+
+  $defClass($classType = "", $name = $buttonName, $stereotype = "<<button>>", $color = "")
+    $defClassAttribute($visibility = "-", $name = "label", $dataType = "string", $defaultValue = $labelDisplay)
     + actionsWhenDisplay() :void
     + clicked() :void
   $defClassEnd()
