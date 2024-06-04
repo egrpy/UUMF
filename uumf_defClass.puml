@@ -97,14 +97,14 @@
 '--------------------------------------------------------------------------------
 'Declare Data Control
 '--------------------------------------------------------------------------------
-!procedure $uumf_recordLayout()
+!unquoted procedure $uumf_recordLayout()
   class recordLayout <<enumeration>> {
       -form
       -grid
-      -report free form
-      -report tabular
-      -report grouped
-      -report graphic
+      -reportFreeForm
+      -reportTabular
+      -reportGrouped
+      -reportGraphic
   }
 !endprocedure
 
