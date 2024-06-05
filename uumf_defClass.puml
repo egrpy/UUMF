@@ -147,7 +147,7 @@
 '--------------------------------------------------------------------------------
 'Declare Note
 '--------------------------------------------------------------------------------
-!procedure uumf_GUINote($name, $arrayGoal, $delimiter)
+!procedure uumf_GUINote($name, $goalArray, $delimiter)
     !$list = %splitstr($arrayGoal, $delimiter)
     note as $name
       !foreach $arrayGoal in $list
