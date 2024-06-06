@@ -150,8 +150,8 @@
 !procedure uumf_GUINote($name, $goalArray, $delimiter)
     !$list = %splitstr($goalArray, $delimiter)
     note as $name
-      !foreach $goalArray in $list
-          $list
+      !foreach $item in $list
+          $item
       !endfor
     end note
 !endprocedure
