@@ -151,7 +151,7 @@
     !$list = %splitstr($goalArray, $delimiter)
     note as $name
       !foreach $goalArray in $list
-          $goalArray
+          $list
       !endfor
     end note
 !endprocedure
