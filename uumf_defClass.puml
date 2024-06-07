@@ -127,7 +127,7 @@
   !if ($recordlayout == "form") || ($recordlayout == "grid") || ($recordlayout == "reportFreeForm") || ($recordlayout == "reportTabular") || ($recordlayout == "reportGrouped")
     !$recordlayout = "<<" + $recordlayout + ">>"  
   !else  
-    !$recordlayout = "<<layoutError>>"  
+    !$recordlayout = $textColor("<<layoutError>>","Red")
   !endif
 
   $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = "")
