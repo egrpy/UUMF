@@ -127,7 +127,7 @@
   !$errorLayout = "ErrorLayout"
   !if ($recordlayout != "form") && ($recordlayout != "grid") && ($recordlayout != "reportFreeForm") && ($recordlayout != "reportTabular") && ($recordlayout != "reportGrouped")
       !$recordlayout = "<<" + $errorLayout + ">>"
-      !$recordlayout = $textColor("recordlayout", "Red")
+      !$recordlayout = $textColor($recordlayout, "Red")
   !else
       !$recordlayout = "<<" + $recordlayout + ">>"
   !endif
