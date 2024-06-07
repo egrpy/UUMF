@@ -66,26 +66,7 @@
   }
 @enduml
 
-'@startuml (id=dataControl)
-'  abstract class dataControl <<dataControl>> extends _visualObject {
-'    - layout :recordLayout
-'    - data :dataSource
-'    + read() :integer
-'    + save() :Integer
-'  }
-'@enduml
-
-'@startuml (id=dataSource)
-'  abstract class dataSource <<data>> {
-'    - id :integer {constraint= "value>0"} {unique}
-'    - field :fieldType
-'    + newRow() :void
-'    + deleteRow() :void
-'    + insertRow() :void
-'  }
-'@enduml
-
-@startuml (id=dataModel)
+@startuml (id=_dataModel)
   abstract class _dataModel <<dataModel>> extends _visualObject {
       - id :integer {id > 0} {unique}
       - field :fieldType {tagged values} {constraints}
