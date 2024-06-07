@@ -118,7 +118,7 @@
 'Declare Data Model
 '--------------------------------------------------------------------------------
 !unquoted procedure $uumf_dataModel($name = "dataModelName", $recordlayout="form")
-  $lcolor = ""
+  !local $lcolor = ""
   !local $dataModelName = $name
 
   !if ($dataModelName == "" || $dataModelName == "dataModelName")
