@@ -98,10 +98,12 @@ package "UI-UML Specification Framework (UUSF) v10" as UUSF {
       note bottom of _dataModel
         The fields of the dataModel can be complemented
         with additional information using tagged values
-        and constraints. Examples:
-        {displayLabel= "label"}, {constraints},
-        {format= "#.##"}, {readonly}, {hidden}, {unique},
-        {required}, {calculate= "formula"}.
+        and constraints, like:
+        {displayLabel= "label"}
+        {PK}, {unique}, {required}, {readOnly}, {hidden},
+        {calculate: formula}, {format= "#.##"},
+        {pattern= "Two decimal places only"},
+        {constraints},
         These features enhance the usability and
         integrity of data in the GUI.
       end note
