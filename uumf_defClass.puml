@@ -129,7 +129,7 @@
     !$recordlayout = "<<" + $recordlayout + ">>"  
   !else
     !$cdLayout = "Error" 
-    !$recordlayout = $textColor("<<ErrorLayout>>","Red")
+    !$recordlayout = $textColor('"'<<ErrorLayout>>'"',"Red")
   !endif
 
   $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = "")
