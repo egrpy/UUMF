@@ -75,6 +75,7 @@
       + deleteRow() :void
       + insertRow() :void
   }
+@enduml
 
 @startuml (id=dataModelForm)
   abstract class dataModelForm <<form>> extends _dataModel {
