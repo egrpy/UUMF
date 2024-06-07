@@ -1,112 +1,142 @@
-@startuml (id=GUISpecification)
-  abstract class GUISpecification <<framework>>{
-  }
-@enduml
+@startuml
+'Configuración
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+'skinparam linetype polyline
+skinparam shadowing true
 
-@startuml (id=_visualObject)
-  abstract class _visualObject extends GUISpecification {
-  }
-@enduml
+package "UI-UML Specification Framework (UUSF) v10" as UUSF {
 
-@startuml (id=screenPanel)
-  abstract class screenPanel <<container>> extends _visualObject {
-    - title :string
-    - visualObject :_visualObject[0..*]
-    + actionsWhenOpen() :void
-    + actionsWhenClose() :void
+  together {
+    abstract class GUISpecification <<framework>>{
+    }
+  
+    abstract class _visualObject extends GUISpecification {
+    }
   }
-@enduml
-
-@startuml (id=window)
-  abstract class window <<window>> extends screenPanel {
+  
+  together {
+    abstract class screenPanel <<container>> extends _visualObject {
+      - title :string
+      - visualObject :_visualObject[0..*]
+      + actionsWhenOpen() :void
+      + actionsWhenClose() :void
+    }
+  
+    abstract class window <<window>> extends screenPanel {
+    }
+  
+    abstract class webPage <<webPage>> extends screenPanel{
+    }
+    
+    abstract class mobileScreen <<mobileScreen>> extends screenPanel{
+    }
   }
-@enduml
 
-@startuml (id=webPage)
-  abstract class webPage <<webPage>> extends screenPanel{
-  }
-@enduml
-
-@startuml (id=label)
-  abstract class label <<label>> extends _visualObject {
+  together {
+    abstract class label <<label>> extends _visualObject {
+        - label :string
+        + actionsWhenDisplay() :void
+    }
+  
+    abstract class button <<button>> extends _visualObject {
       - label :string
       + actionsWhenDisplay() :void
-  }
-@enduml
+      + clicked() :void()
+    }
+    
+    abstract class editField <<editField>> extends _visualObject {
+      - value :T
+      + actionsWhenDisplay() :void
+      + setValue(value: T) : void
+      + getValue() : T
+    }
+  
+    abstract class menu <<menu>> extends _visualObject {
+      - options: MenuOption[1..*]
+      - title: string
+      + actionsWhenDisplay() :void
+      + selectedOption(option: menuOption): void
+    }
+    
+    abstract class menuOption <<menuOption>> {
+      - value: string
+    }
 
-@startuml (id=button)
-  abstract class button <<button>> extends _visualObject {
-    - label :string
-    + actionsWhenDisplay() :void
-    + clicked() :void()
-  }
-@enduml
+    together {
+      abstract class _dataModel <<dataModel>> extends _visualObject {
+          - id :integer {id > 0} {unique}
+          - field :fieldType {tagged values} {constraints}
+          - ...
+          + newRow() :void
+          + deleteRow() :void
+          + insertRow() :void
+      }
+    
+      abstract class dataModelForm <<form>> extends _dataModel {
+      }
+    
+      abstract class dataModelGrid <<grid>> extends _dataModel {
+      }
+    
+      abstract class dataModelOther <<...>> extends _dataModel {
+      }
+    
+      abstract class fieldType {
+      }
+    
+      enum recordLayout <<enumeration>> {
+          form
+          grid
+          reportFreeForm
+          reportTabular
+          reportGrouped
+          reportGraphic
+      }
+  
+      note bottom of _dataModel
+        The fields of the dataModel can be complemented
+        with additional information using tagged values
+        and constraints. Examples:
+        {displayLabel= "label"}, {constraints},
+        {format= "#.##"}, {readonly}, {hidden}, {unique},
+        {required}, {calculate= "formula"}.
+        These features enhance the usability and
+        integrity of data in the GUI.
+      end note
+    }
 
-@startuml (id=editField)
-  abstract class editField <<editField>> extends _visualObject {
-    - value :T
-    + actionsWhenDisplay() :void
-    + setValue(value: T) : void
-    + getValue() : T
+    note as N1
+      **Temas Pendientes**
+      1. ¿cómo especificar la lógica de negocio?
+      2. Tratamiento de errores
+      3. Etc.
+    end note
   }
-@enduml
+}
+package dataLayer {
+  note as N2
+    This package represents the data persistence
+    layer, supporting relational, object-oriented,
+    document, graph, key-value, and other
+    NoSQL databases, based on application
+    requirements and data modeling needs
+  end note
+}
 
-@startuml (id=menu)
-  abstract class menu <<menu>> extends _visualObject {
-    - options: MenuOption[1..*]
-    - title: string
-    + actionsWhenDisplay() :void
-    + selectedOption(option: menuOption): void
-  }
-@enduml
+package otherClasses {
+  note as N3
+    This package represents the other system
+    classes
+  end note
+}
 
-@startuml (id=menuOption)
-  abstract class menuOption <<menuOption>> {
-    - value: string
-  }
-@enduml
+UUSF -r- otherClasses
 
-@startuml (id=_dataModel)
-  abstract class _dataModel <<dataModel>> extends _visualObject {
-      - id :integer {id > 0} {unique}
-      - field :fieldType {tagged values} {constraints}
-      - ...
-      + newRow() :void
-      + deleteRow() :void
-      + insertRow() :void
-  }
-@enduml
+menu "1" --> "0..*" menuOption
+screenPanel *-- _visualObject
+_dataModel *-- fieldType
+_dataModel --> dataLayer
 
-@startuml (id=dataModelForm)
-  abstract class dataModelForm <<form>> extends _dataModel {
-  }
-
-@startuml (id=dataModelGrid)
-  abstract class dataModelGrid <<grid>> extends _dataModel {
-  }
-
-@startuml (id=dataModelOther)
-  abstract class dataModelOther <<...>> extends _dataModel {
-  }
-
-@startuml (id=fieldType)
-  abstract class fieldType {
-  }
-@enduml
-
-@startuml (id=recordLayout)
-  enum recordLayout <<enumeration>> {
-      form
-      grid
-      reportFreeForm
-      reportTabular
-      reportGrouped
-      reportGraphic
-  }
-@enduml
-
-@startuml (id=relationships)
-  menu "1" --> "0..*" menuOption
-  screenPanel *-- _visualObject
-  _dataModel *-- fieldType
 @enduml
