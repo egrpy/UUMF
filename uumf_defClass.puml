@@ -124,7 +124,7 @@
     !$dataModelName = $textColor("dataModelName", "Red")
   !endif
 
-  !$errorLayout = "**Select the correct Record Layout**"
+  !$errorLayout = "**Layout**"
   !if ($recordlayout != "form") && ($recordlayout != "grid") && ($recordlayout != "reportFreeForm") && ($recordlayout != "reportTabular") && ($recordlayout != "reportGrouped")
       !$recordlayout = !$errorLayout
   !endif
