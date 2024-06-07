@@ -138,7 +138,7 @@
     + insertRow() : void
   $defClassEnd()
   
-  !if ($cdLayout != "")
+  !if ($cdLayout == "Error")
     $uumf_recordLayout()
   !endif
 
