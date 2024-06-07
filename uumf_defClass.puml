@@ -127,7 +127,7 @@
   !if ($recordlayout == "form") || ($recordlayout == "grid") || ($recordlayout == "reportFreeForm") || ($recordlayout == "reportTabular") || ($recordlayout == "reportGrouped")
     !$recordlayout = "<<" + $recordlayout + ">>"  
   !else  
-    !$recordlayout = $textColor("<<layoutError>>","Red")
+    !$recordlayout = "<<layoutError>>"
   !endif
 
   $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = "")
@@ -136,7 +136,7 @@
     + insertRow() : void
   $defClassEnd()
   
-  !if ($cdLayout == "<<layoutError>>")
+  !if ($recordlayout == "<<layoutError>>")
     $uumf_recordLayout()
   !endif
 
