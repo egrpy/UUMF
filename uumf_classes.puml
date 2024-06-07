@@ -66,24 +66,46 @@
   }
 @enduml
 
-@startuml (id=dataControl)
-  abstract class dataControl <<dataControl>> extends _visualObject {
-    - layout :recordLayout
-    - data :dataSource
-    + read() :integer
-    + save() :Integer
-  }
-@enduml
+'@startuml (id=dataControl)
+'  abstract class dataControl <<dataControl>> extends _visualObject {
+'    - layout :recordLayout
+'    - data :dataSource
+'    + read() :integer
+'    + save() :Integer
+'  }
+'@enduml
 
-@startuml (id=dataSource)
-  abstract class dataSource <<data>> {
-    - id :integer {constraint= "value>0"} {unique}
-    - field :fieldType
-    + newRow() :void
-    + deleteRow() :void
-    + insertRow() :void
+'@startuml (id=dataSource)
+'  abstract class dataSource <<data>> {
+'    - id :integer {constraint= "value>0"} {unique}
+'    - field :fieldType
+'    + newRow() :void
+'    + deleteRow() :void
+'    + insertRow() :void
+'  }
+'@enduml
+
+@startuml (id=dataModel)
+  abstract class _dataModel <<dataModel>> extends _visualObject {
+      - id :integer {id > 0} {unique}
+      - field :fieldType {tagged values} {constraints}
+      - ...
+      + newRow() :void
+      + deleteRow() :void
+      + insertRow() :void
   }
-@enduml
+
+@startuml (id=dataModelForm)
+  abstract class dataModelForm <<form>> extends _dataModel {
+  }
+
+@startuml (id=dataModelGrid)
+  abstract class dataModelGrid <<grid>> extends _dataModel {
+  }
+
+@startuml (id=dataModelOther)
+  abstract class dataModelOther <<...>> extends _dataModel {
+  }
 
 @startuml (id=fieldType)
   abstract class fieldType {
@@ -103,9 +125,6 @@
 
 @startuml (id=relationships)
   menu "1" --> "0..*" menuOption
-  dataControl --> recordLayout :type of view
-  dataControl "1" *-- "1" dataSource
-  dataControl --> dataLayer
   screenPanel *-- _visualObject
-  dataSource *-- fieldType
+  _dataModel *-- fieldType
 @enduml
