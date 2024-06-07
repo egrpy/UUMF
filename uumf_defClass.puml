@@ -42,11 +42,11 @@
 '--------------------------------------------------------------------------------
 'Declare Edit Field Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_editField($name = "FieldName", $dataType = "T", $initialValue = "")
+!unquoted procedure $uumf_editField($name = "fieldName", $dataType = "T", $initialValue = "")
   !local $fieldName = $name
   !local $fieldDataType = $dataType
 
-  !if ($fieldName == "" || $fieldName == "FieldName")
+  !if ($fieldName == "" || $fieldName == "fieldName")
     !$fieldName = $textColor("fieldName", "Red")
   !endif
 
@@ -127,7 +127,7 @@
   !$errorLayout = "ErrorLayout"
   !if ($recordlayout != "form") && ($recordlayout != "grid") && ($recordlayout != "reportFreeForm") && ($recordlayout != "reportTabular") && ($recordlayout != "reportGrouped")
       !$recordlayout = "<<" + $errorLayout + ">>"
-      !$recordlayout = $textColor($recordlayout, "Red")
+      !$recordlayout = $textColor(!$recordlayout, "Red")
   !else
       !$recordlayout = "<<" + $recordlayout + ">>"
   !endif
