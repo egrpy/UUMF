@@ -115,30 +115,27 @@
 !endprocedure
 
 '--------------------------------------------------------------------------------
-'Declare Data Control
+'Declare Data Model
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_dataControl($name = "dataControlName", $recordlayout = "form")
-  !local $dataControlName = $name
+!unquoted procedure $uumf_dataModel($name = "dataModelName", $recordlayout="form")
+  !local $dataModelName = $name
 
-  !if ($dataControlName == "" || $dataControlName == "dataControlName")
-    !$dataControlName = $textColor("dataControlName", "Red")
+  !if ($dataModelName == "" || $dataModelName == "dataModelName")
+    !$dataModelName = $textColor("dataModelName", "Red")
   !endif
 
-  !if ($recordlayout == "" || $dataControlName == "dataControlName")
-    !$dataControlName = $textColor("dataControlName", "Red")
-  !endif
-
+  !$errorLayout = "** Select the correct Record Layout **"
   !if ($recordlayout != "form") && ($recordlayout != "grid") && ($recordlayout != "reportFreeForm") && ($recordlayout != "reportTabular") && ($recordlayout != "reportGrouped")
-      !$recordlayout = "** error Record Layout **"
+      !$recordlayout = !$errorLayout
   !endif
 
-  $defClass($classType = "", $name = $dataControlName, $stereotype = "<<dataControl>>", $color = "")
-    $defClassAttribute($visibility = "-", $name = "layout", $dataType = "recordLayout", $defaultValue = $recordlayout)
-    + actionsWhenOpen() :void
-    + actionsWhenClose() : void
+  $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = "")
+    + newRow() :void
+    + deleteRow() : void
+    + insertRow() : void
   $defClassEnd()
   
-  !if ($recordlayout == "** error Record Layout **")
+  !if ($recordlayout == !$errorLayout)
     $uumf_recordLayout()
   !endif
 
