@@ -130,7 +130,9 @@
     !$recordlayout = "<<layoutError>>"
   !endif
 
-  $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = "")
+
+
+  $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = "##[bold]red")
     + newRow() :void
     + deleteRow() : void
     + insertRow() : void
