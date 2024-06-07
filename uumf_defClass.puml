@@ -135,9 +135,9 @@
     + insertRow() : void
   $defClassEnd()
   
-  !if ($recordlayout == !$errorLayout)
-    $uumf_recordLayout()
-  !endif
+  '!if ($recordlayout == !$errorLayout)
+  '  $uumf_recordLayout()
+  '!endif
 
 !endprocedure
 
