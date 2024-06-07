@@ -66,8 +66,7 @@ package "UI-UML Specification Framework (UUSF) v10" as UUSF {
 
     together {
       abstract class _dataModel <<dataModel>> extends _visualObject {
-          - id :integer {id > 0} {unique}
-          - field :fieldType {tagged values} {constraints}
+          - field :dataType {tagged values} {constraints}
           - ...
           + newRow() :void
           + deleteRow() :void
