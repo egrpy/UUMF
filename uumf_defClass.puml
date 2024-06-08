@@ -123,6 +123,7 @@
 
   !if ($dataModelName == "" || $dataModelName == "dataModelName")
     !$dataModelName = $textColor("dataModelName", "Red")
+    !$lcolor = "##[bold]red"
   !endif
 
   !if ($recordlayout == "form") || ($recordlayout == "grid") || ($recordlayout == "reportFreeForm") || ($recordlayout == "reportTabular") || ($recordlayout == "reportGrouped")
@@ -132,7 +133,7 @@
     !$recordlayout = "<<layoutError>>"
   !endif
 
-  $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = "")
+  $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = $lcolor)
 
 !endprocedure
 
