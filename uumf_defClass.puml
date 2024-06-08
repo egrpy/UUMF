@@ -133,7 +133,7 @@
     !$lcolor = "##[bold]red"
   !endif
 
-  $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = "##[bold]red")
+  $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = $lcolor)
 
 !endprocedure
 
