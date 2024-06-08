@@ -131,14 +131,6 @@
   !endif
 
   $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = "")
-  '  + newRow() :void
-  '  + deleteRow() : void
-  '  + insertRow() : void
-  '$defClassEnd()
-  
-  !if ($recordlayout == "<<layoutError>>")
-    $uumf_recordLayout()
-  !endif
 
 !endprocedure
 
