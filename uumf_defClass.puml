@@ -53,10 +53,10 @@
   'Create a class
   $defClass($classType = "", $name = $fieldName, $stereotype = "<<editField>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "value", $dataType = $fieldDataType, $defaultValue = $initialValue)
-'    + actionsWhenDisplay() :void
-'    + setValue(value: T) : void
-'    + getValue() : T
-'  $defClassEnd()
+    + actionsWhenDisplay() :void
+    + setValue(value: T) : void
+    + getValue() : T
+  $defClassEnd()
 !endprocedure
 
 '--------------------------------------------------------------------------------
@@ -131,10 +131,10 @@
   !endif
 
   $defClass($classType = "", $name = $dataModelName, $stereotype = $recordlayout, $color = "")
-    + newRow() :void
-    + deleteRow() : void
-    + insertRow() : void
-  $defClassEnd()
+  '  + newRow() :void
+  '  + deleteRow() : void
+  '  + insertRow() : void
+  '$defClassEnd()
   
   !if ($recordlayout == "<<layoutError>>")
     $uumf_recordLayout()
