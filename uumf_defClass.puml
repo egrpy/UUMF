@@ -119,6 +119,7 @@
 '--------------------------------------------------------------------------------
 !unquoted procedure $uumf_dataModel($name = "dataModelName", $recordlayout="form")
   !local $dataModelName = $name
+  !local $lcolor = ""
 
   !if ($dataModelName == "" || $dataModelName == "dataModelName")
     !$dataModelName = $textColor("dataModelName", "Red")
@@ -126,7 +127,8 @@
 
   !if ($recordlayout == "form") || ($recordlayout == "grid") || ($recordlayout == "reportFreeForm") || ($recordlayout == "reportTabular") || ($recordlayout == "reportGrouped")
     !$recordlayout = "<<" + $recordlayout + ">>"  
-  !else  
+  !else
+    !$lcolor = "##[bold]red"
     !$recordlayout = "<<layoutError>>"
   !endif
 
