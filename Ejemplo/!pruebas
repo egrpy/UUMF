@@ -1,17 +1,5 @@
 @startuml
 !include https://raw.githubusercontent.com/egrpy/UUMF/main/uumf_defClass.puml
 
-
-!unquoted procedure $uumf_windowx($name = "WindowName", $title = "Title")
-  !local $windowName = $name
-
-  !if ($windowName == "" || $windowName == "WindowName")
-    !$windowName = $textColor("windowName", "Red")
-  !endif
-
-  $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = "")
-    $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
-!endprocedure
-
-$uumf_windowx($name = "WindowName", $title = "Title")
+$uumf_window($name = "WindowName", $title = "Title")
 @enduml
