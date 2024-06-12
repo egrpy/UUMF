@@ -60,7 +60,7 @@
 '--------------------------------------------------------------------------------
 'Declare Window Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_windowx($name = "WindowName", $title = "Title", $operInitialization="")
+!unquoted procedure $uumf_window($name = "WindowName", $title = "Title", $operInitialization="")
 'This procedure generate the class definition and the principal attribute.
 'To complete the definition, required otheres attributes and operations if it
 'necesary.
