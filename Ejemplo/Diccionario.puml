@@ -4,7 +4,7 @@
 !include https://raw.githubusercontent.com/egrpy/UUMF/main/uumf_defClass.puml
 
 !unquoted procedure $SupplierMaintenance()
-    $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance", $operInitialization="TRUE")
+    $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance", $initialization="TRUE")
         +open()
     $defClassEnd()
 !endprocedure

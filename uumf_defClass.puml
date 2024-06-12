@@ -36,7 +36,6 @@
     !if ($activate == "TRUE")
       + activate() :void
     !endif
-
     !if ($initialization == "TRUE")
       + initialization() :void
     !endif
