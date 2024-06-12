@@ -1,0 +1,119 @@
+@startuml
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+'skinparam linetype polyline
+
+!include https://raw.githubusercontent.com/egrpy/UUMF/main/uumf_defClass.puml
+
+Package "Product Management System 2" {
+  Package "GUI Supplier Maintenance" {
+    $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance")
+    $uumf_dataModel($name = "dataModelName", $recordlayout="form")
+    'Data Control and Data
+    $uumf_dataControl($name = "dcSuppliers", $recordlayout = "form")  
+    
+    !$dataSource = "dsSuppliers"
+    $defClass($classType = "", $name = $dataSource, $stereotype = "<<data>>", $color = "")
+      !$_visibility    = "+"
+      !$_name          = "id"
+      !$_dataType      = "integer"
+      !$_label         = "Id"
+      !$_defaultValue  = "1"
+      !$_pk            = "FALSE"
+      !$_unique        = "TRUE"
+      !$_required      = "TRUE"
+      !$_hidden        = "FALSE"
+      !$_calculate     = "max(id + 1)"
+      !$_constraint    = "id > 0"
+      $defClassAttribute($visibility = $_visibility, $name = $_name, $dataType = $_dataType, $label = $_label, $defaultValue = $_defaultValue, $pk = $_pk, $unique = $_unique, $required = $_required, $hidden = $_hidden, $calculate = $_calculate, $constraint = $_constraint)
+      !$_visibility    = "+"
+      !$_name          = "idSupplier"
+      !$_dataType      = "integer"
+      !$_label         = "Id Supplier"
+      !$_defaultValue  = ""
+      !$_pk            = "TRUE"
+      !$_unique        = "TRUE"
+      !$_required      = "TRUE"
+      !$_hidden        = "FALSE"
+      !$_calculate     = ""
+      !$_constraint    = ""
+      $defClassAttribute($visibility = $_visibility, $name = $_name, $dataType = $_dataType, $label = $_label, $defaultValue = $_defaultValue, $pk = $_pk, $unique = $_unique, $required = $_required, $hidden = $_hidden, $calculate = $_calculate, $constraint = $_constraint)
+      !$_visibility    = "+"
+      !$_name          = "name"
+      !$_dataType      = "string"
+      !$_label         = "Name"
+      !$_defaultValue  = ""
+      !$_pk            = "FALSE"
+      !$_unique        = "FALSE"
+      !$_required      = "TRUE"
+      !$_hidden        = "FALSE"
+      !$_calculate     = ""
+      !$_constraint    = "Upper Case"
+      $defClassAttribute($visibility = $_visibility, $name = $_name, $dataType = $_dataType, $label = $_label, $defaultValue = $_defaultValue, $pk = $_pk, $unique = $_unique, $required = $_required, $hidden = $_hidden, $calculate = $_calculate, $constraint = $_constraint)      
+      !$_visibility    = "+"
+      !$_name          = "address"
+      !$_dataType      = "string"
+      !$_label         = "Address"
+      !$_defaultValue  = ""
+      !$_pk            = "FALSE"
+      !$_unique        = "FALSE"
+      !$_required      = "TRUE"
+      !$_hidden        = "FALSE"
+      !$_calculate     = ""
+      !$_constraint    = "Upper Case"
+      $defClassAttribute($visibility = $_visibility, $name = $_name, $dataType = $_dataType, $label = $_label, $defaultValue = $_defaultValue, $pk = $_pk, $unique = $_unique, $required = $_required, $hidden = $_hidden, $calculate = $_calculate, $constraint = $_constraint)      
+      !$_visibility    = "+"
+      !$_name          = "email"
+      !$_dataType      = "string"
+      !$_label         = "email"
+      !$_defaultValue  = ""
+      !$_pk            = "FALSE"
+      !$_unique        = "FALSE"
+      !$_required      = "TRUE"
+      !$_hidden        = "FALSE"
+      !$_calculate     = ""
+      !$_constraint    = "email format"
+      $defClassAttribute($visibility = $_visibility, $name = $_name, $dataType = $_dataType, $label = $_label, $defaultValue = $_defaultValue, $pk = $_pk, $unique = $_unique, $required = $_required, $hidden = $_hidden, $calculate = $_calculate, $constraint = $_constraint)      
+      'Format????
+
+      '$defClassAttribute($visibility = "+", $name = "email", $dataType = "string")
+      + newRow() :void
+      + deleteRow() :void
+      + insertRow() :void
+    $defClassEnd()
+
+    'Buttons
+    $uumf_button($name = "btSave", $labelDisplay = "Save")
+    $uumf_button($name = "btDelete", $labelDisplay = "Delete")
+    $uumf_button($name = "btExit", $labelDisplay = "Exit")
+   
+    'Relationships
+    $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "btSave", $type="*--")
+    $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "btDelete", $type="*--")
+    $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "btExit", $type="*--")
+    
+    $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "dcSuppliers", $type="*--")
+    $uumf_associtarion($class1 = "dcSuppliers", $class2 = "dsSuppliers", $type="*--")
+
+    !$goal_l1 = "La ventana Supplier Maintenance está diseñada para"
+    !$goal_l2 = "permitir a los usuarios gestionar los proveedores."
+    !$goal_l3 = "Los usuarios pueden añadir, editar y eliminar"
+    !$goal_l4 = "proveedores, así como visualizar detalles específicos"
+    !$goal_l5 = "de cada proveedor."
+    
+    !$delimiter = '~'
+    !$string = $goal_l1 + $delimiter + $goal_l2 + $delimiter + $goal_l3 + $delimiter + $goal_l4 + $delimiter + $goal_l5
+
+    uumf_GUINote("N1", $string, $delimiter)
+    'uumf_GUINote("N1", $string, $delimiter)
+  
+  }
+
+  class proveedores <<entity>>
+  $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "proveedores", $type="-->")
+}
+
+
+
+@enduml

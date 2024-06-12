@@ -1,0 +1,9 @@
+@startuml
+
+!unquoted procedure $SupplierMaintenance()
+    $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance")
+
+!endprocedure
+    
+
+@enduml

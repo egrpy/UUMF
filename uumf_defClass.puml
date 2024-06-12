@@ -20,7 +20,6 @@
     + actionsWhenDisplay() :void
   $defClassEnd()
 !endprocedure
-
 '--------------------------------------------------------------------------------
 'Declare Button Class 
 '--------------------------------------------------------------------------------
@@ -53,29 +52,30 @@
   'Create a class
   $defClass($classType = "", $name = $fieldName, $stereotype = "<<editField>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "value", $dataType = $fieldDataType, $defaultValue = $initialValue)
-    + actionsWhenDisplay() :void
+    + Initialization() :void
     + setValue(value: T) : void
     + getValue() : T
   $defClassEnd()
 !endprocedure
-
 '--------------------------------------------------------------------------------
 'Declare Window Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_window($name = "WindowName", $title = "Title")
+!unquoted procedure $uumf_windowx($name = "WindowName", $title = "Title", $operInitialization="")
+'This procedure generate the class definition and the principal attribute.
+'To complete the definition, required otheres attributes and operations if it
+'necesary.
   !local $windowName = $name
 
   !if ($windowName == "" || $windowName == "WindowName")
     !$windowName = $textColor("windowName", "Red")
   !endif
 
-  $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = "")
+  $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = FALSE)
     $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
-    + actionsWhenOpen() :void
-    + actionsWhenClose() : void
-  $defClassEnd()
+    !if $operInitialization=TRUE
+      + Initialization() :void
+    !endif  
 !endprocedure
-
 '--------------------------------------------------------------------------------
 'Declare WebPage Class 
 '--------------------------------------------------------------------------------
@@ -88,7 +88,7 @@
 
   $defClass($classType = "", $name = $webPageName, $stereotype = "<<webPage>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
-    + actionsWhenOpen() :void
+    + Initialization() :void
     + actionsWhenClose() : void
   $defClassEnd()
 !endprocedure

@@ -1,0 +1,69 @@
+@startuml
+skinparam style strictuml
+
+actor User as Usuario
+participant ":GUI" as GUI <<window>>
+participant ":dmSupplier" as dmSupplier <<form>>
+participant ":grabar" as Grabar <<button>>
+participant ":borrar" as Borrar <<button>>
+participant ":salir" as Salir <<button>>
+participant ":supplier" as Supplier <<entity>>
+
+activate Usuario
+activate Supplier
+
+Usuario -> GUI :open()
+loop until press button Salir
+  alt Initialization
+    activate GUI
+    GUI -> GUI :Initialization()
+    GUI -> Salir : activate()
+    activate Salir
+    GUI -> dmSupplier :insertRow()
+    activate dmSupplier  
+  end
+  
+  alt Principal
+    Usuario -> dmSupplier :setidSupplier()
+    GUI -> dmSupplier :getidSuppplier()
+    GUI -> Supplier :getsupplier(idSupplier :integer) recordSupplier
+    
+    alt Existing record (redcordSupplier is not null)
+      GUI -> dmSupplier :setrecordSupplier()
+      GUI -> Borrar :activate()
+      activate Borrar
+      Usuario -> dmSupplier :setdataRequiered()
+      dmSupplier -> dmSupplier :validate()
+        
+      alt Modify Existing Record
+        GUI -> Grabar :activate()
+        activate Grabar
+        Usuario -> Grabar :clicked()
+        dmSupplier <- Grabar : save()
+        dmSupplier -> dmSupplier: validateBeforeSave(recordSupplier) boolean
+        dmSupplier -> Supplier :[true] saveSupplierRecord()   
+      else Delete Existing Record
+        Usuario -> Borrar :clicked()
+        dmSupplier <- Borrar : delete()
+        dmSupplier -> Supplier : deleteSupplierRecord()
+      end
+    else Add New Record
+      Usuario -> dmSupplier :setdataRequiered()
+      dmSupplier -> dmSupplier :validate()
+      
+      Usuario -> Grabar :clicked()
+      dmSupplier <- Grabar : save()
+      dmSupplier -> dmSupplier: validateBeforeSave(recordSupplier) boolean
+      create "new:supplier" as SupplierNew <<entity>>
+      dmSupplier -> SupplierNew :[true] saveSupplierRecord()   
+    end
+  else Exit  
+    Usuario -> Salir : clicked()
+    GUI <- Salir :exit() boolean
+    GUI -> GUI :validateBeforExit() boolean
+  end
+end
+
+
+
+@enduml
