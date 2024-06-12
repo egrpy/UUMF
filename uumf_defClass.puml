@@ -70,7 +70,7 @@
     !$windowName = $textColor("windowName", "Red")
   !endif
 
-  $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = FALSE)
+  $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
     !if ($operInitialization == "TRUE")
       + Initialization() :void
