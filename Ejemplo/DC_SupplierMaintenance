@@ -8,7 +8,8 @@ skinparam linetype ortho
 
 Package "Product Management System 2" {
   Package "GUI Supplier Maintenance" {
-    $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance")
+    $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance", $operInitialization="FALSE")
+    }
     $uumf_dataModel($name = "dataModelName", $recordlayout="form")
     'Data Control and Data
     $uumf_dataControl($name = "dcSuppliers", $recordlayout = "form")  

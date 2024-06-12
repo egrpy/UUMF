@@ -1,9 +1,27 @@
 @startuml
+'This script contain the class defintion for a specific case.
+
+!include https://raw.githubusercontent.com/egrpy/UUMF/main/uumf_defClass.puml
+
 
 !unquoted procedure $SupplierMaintenance()
     $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance")
-
 !endprocedure
+
+!unquoted procedure $dsSuppliers()
     
+!endprocedure
+
+!unquoted procedure $btSave()
+    
+!endprocedure
+
+!unquoted procedure $btDelete()
+    
+!endprocedure
+
+!unquoted procedure $btExit()
+    
+!endprocedure
 
 @enduml
