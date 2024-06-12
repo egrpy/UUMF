@@ -3,33 +3,34 @@
 
 !include https://raw.githubusercontent.com/egrpy/UUMF/main/uumf_defClass.puml
 
-
 !unquoted procedure $SupplierMaintenance()
     $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance", $operInitialization="TRUE")
         +open()
     $defClassEnd()
 !endprocedure
 
-
 !unquoted procedure $dsSuppliers()
     
 !endprocedure
 
 !unquoted procedure $btSave()
-    
+    $uumf_button($name = "btSave", $labelDisplay = "Save", $activate = "TRUE", $initialization = "FALSE")
+    $defClassEnd()
 !endprocedure
 
 !unquoted procedure $btDelete()
-    
+    $uumf_button($name = "btDelete", $labelDisplay = "Delete", $activate = "TRUE", $initialization = "FALSE")
+    $defClassEnd()
 !endprocedure
 
 !unquoted procedure $btExit()
-    
+    $uumf_button($name = "btExit", $labelDisplay = "Exit", $activate = "TRUE", $initialization = "FALSE")
+    $defClassEnd()
 !endprocedure
 
-$uumf_button($name = "btSave", $labelDisplay = "Save")
-$uumf_button($name = "btDelete", $labelDisplay = "Delete")
-$uumf_button($name = "btExit", $labelDisplay = "Exit")
+
+
+
 
 
 @enduml

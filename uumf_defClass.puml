@@ -23,7 +23,7 @@
 '--------------------------------------------------------------------------------
 'Declare Button Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_button($name = "buttonName", $labelDisplay = "Label Display", Sactivate="FALSE", $initialization="FALSE")
+!unquoted procedure $uumf_button($name = "buttonName", $labelDisplay = "Label Display", $activate="FALSE", $initialization="FALSE")
   !local $buttonName = $name
 
   !if ($buttonName == "" || $buttonName == "buttonName")
@@ -33,7 +33,7 @@
   'Create a class
   $defClass($classType = "", $name = $buttonName, $stereotype = "<<button>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "label", $dataType = "string", $defaultValue = $labelDisplay)
-    !if (Sactivate == "TRUE")
+    !if ($activate == "TRUE")
       + activate() :void
     !endif
 
