@@ -17,13 +17,13 @@
   'Create a class
   $defClass($classType = "", $name = $labelName, $stereotype = "<<label>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "label", $dataType = "string", $defaultValue = $labelDisplay)
-    + actionsWhenDisplay() :void
+    + initialization() :void
   $defClassEnd()
 !endprocedure
 '--------------------------------------------------------------------------------
 'Declare Button Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_button($name = "buttonName", $labelDisplay = "Label Display")
+!unquoted procedure $uumf_button($name = "buttonName", $labelDisplay = "Label Display", Sactivate="FALSE", $initialization="FALSE")
   !local $buttonName = $name
 
   !if ($buttonName == "" || $buttonName == "buttonName")
@@ -33,9 +33,15 @@
   'Create a class
   $defClass($classType = "", $name = $buttonName, $stereotype = "<<button>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "label", $dataType = "string", $defaultValue = $labelDisplay)
-    + actionsWhenDisplay() :void
+    !if (Sactivate == "TRUE")
+      + activate() :void
+    !endif
+
+    !if ($initialization == "TRUE")
+      + initialization() :void
+    !endif
     + clicked() :void
-  $defClassEnd()
+  'Need $defClassEnd() or } to close class definition
 !endprocedure
 
 '--------------------------------------------------------------------------------
@@ -52,7 +58,7 @@
   'Create a class
   $defClass($classType = "", $name = $fieldName, $stereotype = "<<editField>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "value", $dataType = $fieldDataType, $defaultValue = $initialValue)
-    + Initialization() :void
+    + initialization() :void
     + setValue(value: T) : void
     + getValue() : T
   $defClassEnd()
@@ -60,7 +66,7 @@
 '--------------------------------------------------------------------------------
 'Declare Window Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_window($name = "WindowName", $title = "Title", $operInitialization = "FALSE")
+!unquoted procedure $uumf_window($name = "WindowName", $title = "Title", $operinitialization = "FALSE")
 'This procedure generate the class definition and the principal attribute.
 'To complete the definition, required otheres attributes and operations if it
 'necesary.
@@ -72,9 +78,10 @@
 
   $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
-    !if ($operInitialization == "TRUE")
-      + Initialization() :void
-    !endif  
+    !if ($operinitialization == "TRUE")
+      + initialization() :void
+    !endif
+  'Need $defClassEnd() or } to close class definition  
 !endprocedure
 '--------------------------------------------------------------------------------
 'Declare WebPage Class 
@@ -88,7 +95,7 @@
 
   $defClass($classType = "", $name = $webPageName, $stereotype = "<<webPage>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
-    + Initialization() :void
+    + initialization() :void
     + actionsWhenClose() : void
   $defClassEnd()
 !endprocedure

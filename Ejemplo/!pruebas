@@ -1,8 +1,15 @@
 @startuml
-!include https://raw.githubusercontent.com/egrpy/UUMF/main/uumf_defClass.puml
+!include /Users/egr/Projects/Plantuml/UUMF/UUMF/Ejemplo/Diccionario
 
 
 
-$uumf_window($name = "WindowName1", $title = "Title1", $operInitialization="")
-}
+!unquoted procedure $SupplierMaintenance()
+    $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance", $operInitialization="TRUE")
+    +open()
+    $defClassEnd()
+!endprocedure
+
+
+
+$SupplierMaintenance()
 @enduml

@@ -5,8 +5,11 @@
 
 
 !unquoted procedure $SupplierMaintenance()
-    $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance")
+    $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance", $operInitialization="TRUE")
+        +open()
+    $defClassEnd()
 !endprocedure
+
 
 !unquoted procedure $dsSuppliers()
     
@@ -23,5 +26,10 @@
 !unquoted procedure $btExit()
     
 !endprocedure
+
+$uumf_button($name = "btSave", $labelDisplay = "Save")
+$uumf_button($name = "btDelete", $labelDisplay = "Delete")
+$uumf_button($name = "btExit", $labelDisplay = "Exit")
+
 
 @enduml
