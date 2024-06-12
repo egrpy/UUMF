@@ -66,7 +66,7 @@
 '--------------------------------------------------------------------------------
 'Declare Window Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_window($name = "WindowName", $title = "Title", $operinitialization = "FALSE")
+!unquoted procedure $uumf_window($name = "WindowName", $title = "Title", $initialization = "FALSE")
 'This procedure generate the class definition and the principal attribute.
 'To complete the definition, required otheres attributes and operations if it
 'necesary.
@@ -78,7 +78,7 @@
 
   $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
-    !if ($operinitialization == "TRUE")
+    !if ($initialization == "TRUE")
       + initialization() :void
     !endif
   'Need $defClassEnd() or } to close class definition  
