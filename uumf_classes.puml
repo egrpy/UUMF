@@ -20,7 +20,7 @@ package "UI-UML Specification Framework (UUSF) v10" as UUSF {
     abstract class screenPanel <<container>> extends _visualObject {
       - title :string
       - visualObject :_visualObject[0..*]
-      + actionsWhenOpen() :void
+      + initalization() :void
       + actionsWhenClose() :void
     }
   
@@ -37,18 +37,18 @@ package "UI-UML Specification Framework (UUSF) v10" as UUSF {
   together {
     abstract class label <<label>> extends _visualObject {
         - label :string
-        + actionsWhenDisplay() :void
+        + initalization() :void
     }
   
     abstract class button <<button>> extends _visualObject {
       - label :string
-      + actionsWhenDisplay() :void
+      + initalization() :void
       + clicked() :void()
     }
     
     abstract class editField <<editField>> extends _visualObject {
       - value :T
-      + actionsWhenDisplay() :void
+      + initalization() :void
       + setValue(value: T) : void
       + getValue() : T
     }
@@ -56,7 +56,7 @@ package "UI-UML Specification Framework (UUSF) v10" as UUSF {
     abstract class menu <<menu>> extends _visualObject {
       - options: MenuOption[1..*]
       - title: string
-      + actionsWhenDisplay() :void
+      + initalization() :void
       + selectedOption(option: menuOption): void
     }
     
