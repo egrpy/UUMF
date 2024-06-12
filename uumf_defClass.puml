@@ -72,7 +72,7 @@
 
   $defClass($classType = "", $name = $windowName, $stereotype = "<<window>>", $color = FALSE)
     $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
-    !if ($operInitialization="TRUE")
+    !if ($operInitialization == "TRUE")
       + Initialization() :void
     !endif  
 !endprocedure
