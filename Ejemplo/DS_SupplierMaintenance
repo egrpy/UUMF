@@ -41,11 +41,11 @@ loop until press button Salir
         Usuario -> Grabar :clicked()
         dmSupplier <- Grabar : save()
         dmSupplier -> dmSupplier: validateBeforeSave(recordSupplier) boolean
-        dmSupplier -> Supplier :[true] saveSupplierRecord()   
+        dmSupplier -> Supplier :[true] save()   
       else Delete Existing Record
         Usuario -> Borrar :clicked()
         dmSupplier <- Borrar : delete()
-        dmSupplier -> Supplier : deleteSupplierRecord()
+        dmSupplier -> Supplier : delete()
       end
     else Add New Record
       Usuario -> dmSupplier :setdataRequiered()
@@ -55,7 +55,7 @@ loop until press button Salir
       dmSupplier <- Grabar : save()
       dmSupplier -> dmSupplier: validateBeforeSave(recordSupplier) boolean
       create "new:supplier" as SupplierNew <<entity>>
-      dmSupplier -> SupplierNew :[true] saveSupplierRecord()   
+      dmSupplier -> SupplierNew :[true] save()   
     end
   else Exit  
     Usuario -> Salir : clicked()

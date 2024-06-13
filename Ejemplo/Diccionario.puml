@@ -9,10 +9,6 @@
     $defClassEnd()
 !endprocedure
 
-!unquoted procedure $dsSuppliers()
-    
-!endprocedure
-
 !unquoted procedure $btSave()
     $uumf_button($name = "btSave", $labelDisplay = "Save", $activate = "TRUE", $initialization = "FALSE")
     $defClassEnd()
@@ -28,9 +24,24 @@
     $defClassEnd()
 !endprocedure
 
-
-
-
-
+!unquoted procedure $dmSuppliers()
+    $uumf_dataModel($name = "dmSupplier", $recordlayout="form")
+      '$defClassAttribute($visibility,  $name,          $dataType,  $defaultValue,  $label,         $pk,        $unique,    $required,  $readOnly   $hidden,    $calculate,     $format,        $pattern,   $constraint)
+      $defClassAttribute("+",           "id",           "integer",  "1",            "Id",           "FALSE",    "TRUE",     "TRUE",     "FALSE",    "FALSE",    "max(id + 1)",  "##",           "",         "id > 0")
+      $defClassAttribute("+",           "idSupplier",   "integer",  "",             "Id Supplier",  "TRUE",     "TRUE",     "TRUE",     "FALSE",    "FALSE",    "",             "######",       "",         "")
+      $defClassAttribute("+",           "name",         "string",   "",             "Name",         "FALSE",    "FALSE",    "TRUE",     "FALSE",    "FALSE",    "",             "Upper Case",   "",         "")
+      $defClassAttribute("+",           "address",      "string",   "",             "Address",      "FALSE",    "FALSE",    "TRUE",     "FALSE",    "FALSE",    "",             "Upper Case",   "",         "")
+      $defClassAttribute("+",           "email",        "string",   "",             "email",        "FALSE",    "FALSE",    "TRUE",     "FALSE",    "FALSE",    "",             "email format", "",         "")      
+      + setidSupplier()
+      + getidSuppplier()
+      + setrecordSupplier()
+      + setdataRequiered()
+      + validate()
+      + validateBeforeSave(recordSupplier) boolean
+      + save()
+      + delete()
+      + insertRow() :void
+    $defClassEnd()
+!endprocedure
 
 @enduml

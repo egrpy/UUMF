@@ -67,8 +67,7 @@
 '--------------------------------------------------------------------------------
 !unquoted procedure $uumf_window($name = "WindowName", $title = "Title", $initialization = "FALSE")
 'This procedure generate the class definition and the principal attribute.
-'To complete the definition, required otheres attributes and operations if it
-'necesary.
+'To complete the definition, required otheres attributes and operations, if is necesary.
   !local $windowName = $name
 
   !if ($windowName == "" || $windowName == "WindowName")
@@ -85,7 +84,9 @@
 '--------------------------------------------------------------------------------
 'Declare WebPage Class 
 '--------------------------------------------------------------------------------
-!unquoted procedure $uumf_webPage($name = "WebPageName", $title = "Title")
+!unquoted procedure $uumf_webPage($name = "WebPageName", $title = "Title", $initialization = "FALSE")
+'This procedure generate the class definition and the principal attribute.
+'To complete the definition, required otheres attributes and operations, if is necesary.
   !local $webPageName = $name
 
   !if ($webPageName == "" || $webPageName == "WebPageName")
@@ -94,9 +95,10 @@
 
   $defClass($classType = "", $name = $webPageName, $stereotype = "<<webPage>>", $color = "")
     $defClassAttribute($visibility = "-", $name = "title", $dataType = "string", $defaultValue = $title)
-    + initialization() :void
-    + actionsWhenClose() : void
-  $defClassEnd()
+    !if ($initialization == "TRUE")
+      + initialization() :void
+    !endif
+  'Need $defClassEnd() or } to close class definition  
 !endprocedure
 
 '--------------------------------------------------------------------------------
