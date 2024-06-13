@@ -1,0 +1,17 @@
+@startuml
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+'skinparam linetype ortho
+'skinparam linetype polyline
+
+Package "Product Management System 2" {
+actor Usuario
+usecase "Supplier Maintenance" as SupplierMaintenance
+usecase Sales
+
+Rectangle {
+    Usuario -r- SupplierMaintenance
+    Usuario -- Sales
+}
+}
+@enduml

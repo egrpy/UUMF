@@ -1,0 +1,73 @@
+%%plantuml
+@startuml
+  skinparam style strictuml
+  skinparam classAttributeIconSize 0
+  skinparam linetype ortho
+
+  Title Desde el Requerimiento hasta la Especifiación de UI
+
+  class Requirement <<Document>> {
+    -id :integer {unique} {not null}
+    -statement :string {not null}
+    -type :string {constraint: "value = in ['Funtional','Non-Funtional', 'Pseudorequirement']"}
+  }
+
+  class UseCaseModel <<Model>> {
+    -UseCase :UseCase[]
+    -Actor :Actor[]
+  }
+
+  class UseCase <<Element>> {
+    -Name :string {unique} {not null}
+  }
+
+  class Actor {
+  }
+
+  class UCDescription <<Document>> {
+    -Name :string {unique}
+    -Description :text
+    -Actor :Actor[]
+    -Precondition :text
+    -NormalFlow :text
+    -Postcondition :text
+    -AlternativeFlow :text
+  }
+
+  class ClassModelByUC <<Model>> {
+    -BusinessClass :Class[]
+  }
+
+  class Class <<Element>> {
+  }
+
+  class InteractionModelByUC <<Model>> {
+    -Object :ClassObject[]
+    -Actor :Actor[]
+  }
+
+  class ActivityModelByUC <<Model>> {
+  }
+
+  class OtherModel  <<Model>> {
+  }
+
+  class UI-UMLSpecification  <<Framework>> ##[bold]red {
+  }
+
+  Requirement --> UseCase
+  UseCase --> UseCase
+  UseCase -->  Actor
+  UseCase --> UCDescription
+  UseCase --  ClassModelByUC
+  UseCase --> InteractionModelByUC
+  UseCase --> ActivityMdelByUC
+  ActivityModelByUC <-- ClassModelByUC
+  ActivityModelByUC <-- UseCaseModel
+  InteractionModelByUC -- ClassModelByUC
+  ClassModelByUC o-- Class
+  UseCaseModel o-- UseCase
+  UseCaseModel o-- Actor
+  "UI-UMLSpecification" o- Class
+
+@enduml

@@ -2,5 +2,5 @@
 
 !include /Users/egr/Projects/Plantuml/UUMF/UUMF/Ejemplo/Diccionario.puml
 
-$dsSuppliers()
+$dmSuppliers()
 @enduml
