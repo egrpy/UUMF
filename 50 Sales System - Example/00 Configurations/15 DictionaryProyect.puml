@@ -6,23 +6,25 @@
 '-----------------------------------------------------------------------------------------------------------
 'Analysis Classes
 '-----------------------------------------------------------------------------------------------------------
-!unquoted procedure $classSuppliers()
-    class suppliers <<entity>> {
-      - idSupplier :integer {PK} {not null}
-      - name :string {not null}
-      - address :string
-      - email :string
-      + insert(idSupplier :integer, name :string, address :string, email :string) :boolean
-      + update(idSupplier :integer, name :string, address :string, email :string) :boolean
-      + delete(idSupplier :integer) :boolean
-      + getsupplier(idSupplier :integer, name :string, address :string, email :string) recordSupplier
-    }
-!endprocedure
+package analysis {
+    !unquoted procedure $classSuppliers()
+        class suppliers <<entity>> {
+        - idSupplier :integer {PK} {not null}
+        - name :string {not null}
+        - address :string
+        - email :string
+        + insert(idSupplier :integer, name :string, address :string, email :string) :boolean
+        + update(idSupplier :integer, name :string, address :string, email :string) :boolean
+        + delete(idSupplier :integer) :boolean
+        + getsupplier(idSupplier :integer, name :string, address :string, email :string) recordSupplier
+        }
+    !endprocedure
 
-!unquoted procedure $classSuppliersMaintenance()
-  class "Supplier Maintenance" <<Boundary>> {
-  }
-!endprocedure
+    !unquoted procedure $classSuppliersMaintenance()
+    class "SupplierMaintenance" <<Boundary>> {
+    }
+    !endprocedure
+}
 
 '-----------------------------------------------------------------------------------------------------------
 'Supplier Maintenance

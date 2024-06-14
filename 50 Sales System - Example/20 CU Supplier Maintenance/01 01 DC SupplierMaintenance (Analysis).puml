@@ -9,7 +9,9 @@ skinparam classAttributeIconSize 0
 $dictionary_include()
 
 Package "Product Management System 2" {
-  $classSuppliersMaintenance()
+    $classSuppliersMaintenance()
+    $classSuppliers()
+    "Supplier Maintenance" -- suppliers
 }
 
 
