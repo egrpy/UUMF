@@ -11,7 +11,10 @@ $dictionary_include()
 
 Package "Product Management System 2" {
   Package "GUI Supplier Maintenance" {
+    'Container
     $SupplierMaintenance()
+
+    'Data Models
     $dmSuppliers()
 
     'Buttons
@@ -23,9 +26,9 @@ Package "Product Management System 2" {
     $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "btSave", $type="*-u-")
     $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "btDelete", $type="*-l-")
     $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "btExit", $type="*-r-")
-    
     $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "dmSupplier", $type="*--")
 
+    'UI Goals
     !$goal_l1 = "La ventana Supplier Maintenance está diseñada para"
     !$goal_l2 = "permitir a los usuarios gestionar los proveedores."
     !$goal_l3 = "Los usuarios pueden añadir, editar y eliminar"
@@ -38,21 +41,10 @@ Package "Product Management System 2" {
     uumf_GUINote("N1", $string, $delimiter)
   }
   package DataLayer {
-    class proveedores <<entity>> {
-      - idSupplier :integer {PK} {not null}
-      - name :string {not null}
-      - address :string
-      - email :string
-      + insert()
-      + update()
-      + delete()
-      + getsupplier(idSupplier :integer) recordSupplier
-    }
+    $classSuppliers()
   }
 
-  $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "proveedores", $type="-->")
+  $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "suppliers", $type="-r->")
 }
-
-
 
 @enduml
