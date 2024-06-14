@@ -7,7 +7,7 @@ skinparam classAttributeIconSize 0
 'Includes
 !include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/10%20Configurations.puml
 $uumf_include()
-$diccionario_include()
+$dictionary_include()
 
 Package "Product Management System 2" {
   Package "GUI Supplier Maintenance" {
