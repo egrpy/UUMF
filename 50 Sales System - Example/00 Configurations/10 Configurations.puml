@@ -9,7 +9,7 @@
 !endprocedure
 
 !unquoted procedure $dictionary_include()
-    !include /Users/egr/Projects/Plantuml/UUMF/UUMF/50 Sales System - Example/00 Configurations/15 DictionaryProyect.puml
+    !include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/15%20DictionaryProyect.puml
 !endprocedure
 
 @enduml
