@@ -50,7 +50,7 @@ La información del proveedor es actualizada, eliminada o agregada correctamente
 * El actor Logistic selecciona la opción de mantenimiento de proveedores
 * Si el Id del proveedor no es conocido, el actor Logistic puede buscar un proveedor existente utilizando el CU Supplier Search
     * En caso de haber ejecutado el CU Supplier Search
-        * Asingar Id = valor en portapapeles
+        * El sistema asigna automáticamente el valor del Id del proveedor obtenido del portapapeles al atributo Id
 * El actor Logistic ingresa o confirma el Id del proveedor
 * El sistema busca la información del Id proporcionado
     * Si existe, muestra los datos obtenidos
@@ -70,6 +70,9 @@ La información del proveedor es actualizada, eliminada o agregada correctamente
         * El actor Logistic registra los datos en sistema
         * El sistema valida los datos conforme a las regla de negocio para nuevos proveedores
         * El actor Logistic guarda los cambios
+"Si el Id del proveedor no es conocido, el actor Logistic puede buscar un proveedor existente utilizando el caso de uso Supplier Search. Una vez completada la búsqueda, el sistema asigna automáticamente el valor del Id del proveedor obtenido del portapapeles al campo correspondiente. Luego, el actor Logistic procede a ingresar o confirmar el Id del proveedor y el sistema continúa con la búsqueda de información del proveedor."
+
+
 
 ## Flujos Alternativos 
 ### Flujo Alternativo 1

@@ -4,8 +4,10 @@ skinparam classAttributeIconSize 0
 'skinparam linetype ortho
 'skinparam linetype polyline
 
-!include https://raw.githubusercontent.com/egrpy/UUMF/main/02%20Framework/uumf_defClass.puml
-!include https://raw.githubusercontent.com/egrpy/UUMF/main/03%20Sales%20System%20-%20Example/02%20CU%20Supplier%20Maintenance/04%20Diccionario.puml
+'Includes
+!include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/10%20Configurations.puml
+$uumf_include()
+$diccionario_include()
 
 Package "Product Management System 2" {
   Package "GUI Supplier Maintenance" {
