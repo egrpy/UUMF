@@ -3,6 +3,25 @@
 
 !include https://raw.githubusercontent.com/egrpy/UUMF/main/02%20Framework/uumf_defClass.puml
 
+'-----------------------------------------------------------------------------------------------------------
+'Analysis Classes
+'-----------------------------------------------------------------------------------------------------------
+!unquoted procedure $classSuppliers()
+    class suppliers <<entity>> {
+      - idSupplier :integer {PK} {not null}
+      - name :string {not null}
+      - address :string
+      - email :string
+      + insert(idSupplier :integer, name :string, address :string, email :string) :boolean
+      + update(idSupplier :integer, name :string, address :string, email :string) :boolean
+      + delete(idSupplier :integer) :boolean
+      + getsupplier(idSupplier :integer, name :string, address :string, email :string) recordSupplier
+    }
+!endprocedure
+
+'-----------------------------------------------------------------------------------------------------------
+'Supplier Maintenance
+'-----------------------------------------------------------------------------------------------------------
 !unquoted procedure $SupplierMaintenance()
     $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance", $initialization="TRUE")
         +open()
