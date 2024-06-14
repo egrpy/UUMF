@@ -9,7 +9,8 @@
 !endprocedure
 
 !unquoted procedure $diccionario_include()
-    !include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/20%20CU%20Supplier%20Maintenance/04%20Diccionario.puml
+    '!include GitHub
+    !include /Users/egr/Projects/Plantuml/UUMF/UUMF/50 Sales System - Example/00 Configurations/15 DiccionarioProyecto.puml
 !endprocedure
 
 @enduml
