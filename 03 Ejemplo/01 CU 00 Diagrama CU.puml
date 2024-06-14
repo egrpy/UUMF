@@ -1,0 +1,48 @@
+@startuml
+    left to right direction
+    skinparam style strictuml
+    skinparam classAttributeIconSize 0
+    'skinparam linetype ortho
+
+    'Actors
+    actor Customer
+    actor Seller
+    actor Cashier
+    actor Logistic
+    actor Supplier
+    actor User
+
+    User <|-- Seller
+    User <|-- Logistic
+
+    package "Sales System" {
+        'Del Caso de Uso a la Especificación del UI
+        (Supplier Maintenance) #line:red;line.bold
+        (Supplier Search) #line:red;line.bold
+        (Sales Maintenance) #line:red;line.bold
+        (Print Invoice) #line:red;line.bold
+
+        Logistic -- (Supplier Maintenance) 
+        Logistic -- (Purchase Maintenance)
+        Logistic --  (Product Maintenance)
+
+        Supplier --> (Purchase Maintenance)
+
+        Seller -- (Sales Maintenance)
+        Cashier --> (Collections\nCompleted\nReport)
+        Cashier -- (Collect Invoice)
+        
+        Customer --> (Sales Maintenance)    
+        Customer --> (Collect Invoice)
+
+        (Product Maintenance) <.. (Product Search) :<<extend>>
+        
+        (Supplier Maintenance) <.. (Supplier Search) :<<extend>>
+        (Purchase Maintenance) <.. (Supplier Search) :<<extend>>
+        (Purchase Maintenance) <.. (Product Search) :<<extend>>
+
+        (Sales Maintenance) <.. (Customer Search) :<<extend>>
+        (Sales Maintenance) <.. (Product Search) :<<extend>>
+        (Sales Maintenance) <.. (Print Invoice) :<<extend>>
+    }
+@enduml

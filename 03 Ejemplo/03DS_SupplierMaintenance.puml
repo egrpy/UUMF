@@ -63,7 +63,4 @@ loop until press button Salir
     GUI -> GUI :validateBeforExit() boolean
   end
 end
-
-
-
 @enduml

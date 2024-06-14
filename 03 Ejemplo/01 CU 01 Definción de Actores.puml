@@ -1,0 +1,49 @@
+@startuml
+    left to right direction
+    skinparam style strictuml
+    skinparam classAttributeIconSize 0
+    'skinparam linetype ortho
+
+    package "Actores de la Organización" {
+        actor Seller
+        note right of (Seller)
+            Vendedor de la empresa, realiza las tareas
+            relativas a la comercialización, atendiendo
+            las necesidades de los clientes.
+        end note
+
+        actor Cashier
+        note right of (Cashier)
+            Cajero de la empresa, realiza las tareas
+            relativas al cobro de facturas emitidas
+            a los cientes
+        end note
+
+        actor Logistic
+        note right of (Logistic)
+            Este es una actor genérico, que se encarga de
+            las tareas relativas al manejo de los Productos.
+        end note
+
+        actor User
+        note right of (User)
+            Es una generalización de los usuarios internos de
+            la empresa.
+        end note
+    }
+
+package "Actores externos a la Organización" {
+        actor Customer
+        note right of (Customer)
+            Cliente de la empresa.
+        end note
+
+        actor Supplier
+        note right of (Supplier)
+            Proveedor de la empresa.
+        end note
+}
+
+User <|-- Seller
+User <|-- Logistic
+@enduml
