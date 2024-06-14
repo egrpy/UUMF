@@ -1,0 +1,11 @@
+@startuml
+
+!unquoted procedure $uumf_include()
+    !include https://raw.githubusercontent.com/egrpy/UUMF/main/02%20Framework/uumf_defClass.puml
+!endprocedure
+
+!unquoted procedure $SqlUMLSpec_include()
+    !include https://raw.githubusercontent.com/egrpy/SqlUMLSpec/main/sqlUMLSpecFunctions.puml
+!endprocedure
+
+@enduml
