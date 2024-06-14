@@ -5,7 +5,7 @@ skinparam classAttributeIconSize 0
 'skinparam linetype polyline
 
 !include https://raw.githubusercontent.com/egrpy/UUMF/main/uumf_defClass.puml
-!include /Users/egr/Projects/Plantuml/UUMF/UUMF/Ejemplo/Diccionario.puml     
+!include /Users/egr/Projects/Plantuml/UUMF/UUMF/Ejemplo/02Diccionario.puml     
 
 Package "Product Management System 2" {
   Package "GUI Supplier Maintenance" {
