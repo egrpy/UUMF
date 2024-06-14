@@ -9,7 +9,7 @@
 !endprocedure
 
 !unquoted procedure $dictionary_include()
-    !include /Users/egr/Projects/Plantuml/UUMF/UUMF/50 Sales System - Example/00 Configurations/15 DiccionarioProyecto.puml
+    !include /Users/egr/Projects/Plantuml/UUMF/UUMF/50 Sales System - Example/00 Configurations/15 DictionaryProyect.puml
 !endprocedure
 
 @enduml
