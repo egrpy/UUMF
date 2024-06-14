@@ -1,7 +1,7 @@
 @startuml
 'This script contain the class defintion for a specific case.
 
-!include https://raw.githubusercontent.com/egrpy/UUMF/main/uumf_defClass.puml
+!include https://raw.githubusercontent.com/egrpy/UUMF/main/02%20Framework/uumf_defClass.puml
 
 !unquoted procedure $SupplierMaintenance()
     $uumf_window($name = "SupplierMaintenance", $title = "Supplier Maintenance", $initialization="TRUE")
