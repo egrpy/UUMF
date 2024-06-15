@@ -12,7 +12,7 @@ $dictionary_include()
 title CU Supplier Maintenance (System Design)
 
 Package $systemName {
-  Package "GUI Supplier Maintenance" {
+  Package "UI Supplier Maintenance" {
     
     note as UIGoal
       La ventana Supplier Maintenance está diseñada para
@@ -44,7 +44,7 @@ Package $systemName {
   }
 
   package "UI Supplier Search" {
-  '  $supplierSeach()
+    $supplierSeach()
   }
 
   $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "suppliers", $type="-r->")

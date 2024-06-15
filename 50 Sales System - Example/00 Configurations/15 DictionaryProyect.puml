@@ -73,7 +73,7 @@
 '-----------------------------------------------------------------------------------------------------------
 'Supplier Search
 '-----------------------------------------------------------------------------------------------------------
-!unquoted procedure $supplierSeach()
+!unquoted procedure $supplierSearch()
     $uumf_window($name = "supplierSearch", $title = "Supplier Search", $initialization="TRUE")
         +open()
     $defClassEnd()
