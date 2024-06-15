@@ -44,7 +44,7 @@ Package $systemName {
   }
 
   package "UI Supplier Search" {
-    $supplierSeach()
+    $supplierSearch()
   }
 
   $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "suppliers", $type="-r->")
