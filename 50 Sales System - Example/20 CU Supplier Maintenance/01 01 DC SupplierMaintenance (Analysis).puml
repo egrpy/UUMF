@@ -11,8 +11,10 @@ $dictionary_include()
 Package "Product Management System 2" {
     $classSuppliersMaintenance()
     $classSuppliers()
-    "Supplier Maintenance" -- suppliers
+    SupplierMaintenance -- suppliers
+    '$SupplierMaintenance()
 }
+
 
 
 
