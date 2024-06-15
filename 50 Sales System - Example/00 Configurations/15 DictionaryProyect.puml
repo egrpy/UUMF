@@ -20,7 +20,7 @@
 !endprocedure
 
 !unquoted procedure $classSuppliersMaintenance()
-    class "supplierMaintenance" <<Boundary>> {
+    class supplierMaintenance <<Boundary>> {
     }
 !endprocedure
 

@@ -9,10 +9,12 @@ skinparam classAttributeIconSize 0
 $uumf_include()
 $dictionary_include()
 
+title CU Supplier Maintenance (System Design)
+
 Package "Product Management System 2" {
   Package "GUI Supplier Maintenance" {
     'Container
-    $SupplierMaintenance()
+    $supplierMaintenance()
 
     'Data Models
     $dmSuppliers()
@@ -23,10 +25,10 @@ Package "Product Management System 2" {
     $btExit()
    
     'Relationships
-    $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "btSave", $type="*-u-")
-    $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "btDelete", $type="*-l-")
-    $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "btExit", $type="*-r-")
-    $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "dmSupplier", $type="*--")
+    $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btSave", $type="*-u-")
+    $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btDelete", $type="*-l-")
+    $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btExit", $type="*-r-")
+    $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "dmSupplier", $type="*--")
 
     'UI Goals
     !$goal_l1 = "La ventana Supplier Maintenance está diseñada para"
@@ -44,7 +46,7 @@ Package "Product Management System 2" {
     $classSuppliers()
   }
 
-  $uumf_associtarion($class1 = "SupplierMaintenance", $class2 = "suppliers", $type="-r->")
+  $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "suppliers", $type="-r->")
 }
 
 @enduml

@@ -1,0 +1,35 @@
+@startuml
+'left to right direction
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+'skinparam linetype ortho
+'skinparam linetype polyline
+
+'Includes
+!include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/10%20Configurations.puml
+$dictionary_include()
+
+title CU Supplier Maintenance\nSequence Diagram (System Analysis)
+
+'Actores
+Actor Logistic
+
+Participant ":suplierMaintenance" <<Boundary>>
+Participant "new:suppliers" <<Entity>>
+Participant ":suppliers" <<Entity>>
+
+'Interacción
+activate Logistic
+activate ":suplierMaintenance"
+activate ":suppliers"
+Logistic -> ":suplierMaintenance" : supplierData(idSupplier, name, address, email)
+alt new
+create "new:suppliers"
+":suplierMaintenance" -> "new:suppliers" : insert(idSupplier :integer,\nname :string,\naddress :string, emmail :string)
+else update
+":suplierMaintenance" -> ":suppliers" : update(idSupplier :integer,\nname :string,\naddress :string, emmail :string)
+else delete
+":suplierMaintenance" -> ":suppliers" : delete(idSupplier :integer)
+end
+
+@enduml

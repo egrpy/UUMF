@@ -1,5 +1,7 @@
 @startuml
 
+!$systemName = '"Product Management System 2"'
+
 !unquoted procedure $uumf_include()
     !include https://raw.githubusercontent.com/egrpy/UUMF/main/02%20Framework/uumf_defClass.puml
 !endprocedure
