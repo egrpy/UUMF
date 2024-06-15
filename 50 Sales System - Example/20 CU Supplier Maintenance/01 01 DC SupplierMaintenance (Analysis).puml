@@ -17,30 +17,3 @@ Package $systemName {
 $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "suppliers", $type="-->")
 
 @enduml
-
-
-  'left to right direction
-  skinparam style strictuml
-  'skinparam classAttributeIconSize 0
-  'skinparam linetype ortho
-
-  'Actores
-  Actor Logística
-  Participant ":Mantener Proveedores" <<Boundary>>
-  Participant "new:proveedores" <<Entity>>
-  Participant ":proveedores" <<Entity>>
-
-  'Interacción
-  activate Logística
-  activate ":Mantener Proveedores"
-  activate ":proveedores"
-  Logística -> ":Mantener Proveedores" : datosProveedor(id, nombre, RUC)
-  alt nuevo
-    create "new:proveedores"
-    ":Mantener Proveedores" -> "new:proveedores" : insertar(id :integer, nombre :string, RUC :string)
-  else modificar
-    ":Mantener Proveedores" -> ":proveedores" : modificar(id :integer, nombre :string, RUC :string)
-  else eliminar
-    ":Mantener Proveedores" -> ":proveedores" : eliminar(id :integer)
-  end
-
