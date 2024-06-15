@@ -9,7 +9,7 @@ skinparam classAttributeIconSize 0
 $dictionary_include()
 
 title CU Supplier Maintenance - Classes (System Analysis)
-Package "Product Management System 2" {
+Package $systemName {
     $classSuppliersMaintenance()
     $classSuppliers()
 }

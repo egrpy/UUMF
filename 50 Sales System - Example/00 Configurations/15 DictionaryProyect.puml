@@ -69,3 +69,12 @@
 !endprocedure
 
 @enduml
+
+'-----------------------------------------------------------------------------------------------------------
+'Supplier Search
+'-----------------------------------------------------------------------------------------------------------
+!unquoted procedure $supplierSeach()
+    $uumf_window($name = "supplierSearch", $title = "Supplier Search", $initialization="TRUE")
+        +open()
+    $defClassEnd()
+!endprocedure

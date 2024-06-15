@@ -11,8 +11,17 @@ $dictionary_include()
 
 title CU Supplier Maintenance (System Design)
 
-Package "Product Management System 2" {
+Package $systemName {
   Package "GUI Supplier Maintenance" {
+    
+    note as UIGoal
+      La ventana Supplier Maintenance está diseñada para
+      permitir a los usuarios gestionar los proveedores.
+      Los usuarios pueden añadir, editar y eliminar
+      proveedores, así como visualizar detalles específicos
+      de cada proveedor.
+    end note
+
     'Container
     $supplierMaintenance()
 
@@ -29,18 +38,6 @@ Package "Product Management System 2" {
     $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btDelete", $type="*-l-")
     $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btExit", $type="*-r-")
     $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "dmSupplier", $type="*--")
-
-    'UI Goals
-    !$goal_l1 = "La ventana Supplier Maintenance está diseñada para"
-    !$goal_l2 = "permitir a los usuarios gestionar los proveedores."
-    !$goal_l3 = "Los usuarios pueden añadir, editar y eliminar"
-    !$goal_l4 = "proveedores, así como visualizar detalles específicos"
-    !$goal_l5 = "de cada proveedor."
-    
-    !$delimiter = '~'
-    !$string = $goal_l1 + $delimiter + $goal_l2 + $delimiter + $goal_l3 + $delimiter + $goal_l4 + $delimiter + $goal_l5
-
-    uumf_GUINote("N1", $string, $delimiter)
   }
   package DataLayer {
     $classSuppliers()
