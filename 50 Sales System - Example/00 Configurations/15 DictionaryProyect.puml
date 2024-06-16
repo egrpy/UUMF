@@ -83,6 +83,6 @@
 !endprocedure
 
 !unquoted procedure $labelSearchCriteria()
-    $uumf_label($name = "labelSearchCriteria", $labelDisplay = "Search Criteria")
+    $uumf_label($name = "SearchCriteria", $labelDisplay = "Search Criteria")
 !endprocedure 
 @enduml
