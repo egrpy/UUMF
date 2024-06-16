@@ -4,12 +4,19 @@ skinparam classAttributeIconSize 0
 'skinparam linetype ortho
 'skinparam linetype polyline
 
+'----------------------------
 'UI elements summary
+'----------------------------
   'supplierSearch <<window>>
     'label: lb_searchCritera
     'Field: ef_searchCritera
     'Button: bt_search
     'Button: bt_exit
+'DataLAyer
+  'entity: supplier
+'OS
+  'clipboard
+'----------------------------
 
 'Includes
 !include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/10%20Configurations.puml
@@ -60,9 +67,9 @@ Package $systemName {
   $uumf_associtarion($class1 = "supplierSearch", $class2 = "suppliers", $type="-d->")
 
   package "OS" {
-    $clipboard
+    $clipboard()
   }
-  $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "supplierSearch", $type="-->") :CU Supplier Search
+  $uumf_associtarion($class1 = "supplierSearch", $class2 = "clipboard", $type="-->")
 
 }
 

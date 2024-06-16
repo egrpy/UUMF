@@ -6,7 +6,7 @@
 '-----------------------------------------------------------------------------------------------------------
 'OS Classes
 '-----------------------------------------------------------------------------------------------------------
-!unquoted procedure $clipboard
+!unquoted procedure $clipboard()
     class clipboard <<OSService>> {
         +setClipboard()
         +getClipboard() 
