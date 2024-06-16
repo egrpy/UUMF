@@ -9,11 +9,12 @@ skinparam classAttributeIconSize 0
 $uumf_include()
 $dictionary_include()
 
-title CU Supplier Maintenance (System Design)
+title UC Supplier Maintenance (System Design)
 
 Package $systemName {
   Package "UI Supplier Maintenance" {
-    
+    '
+    'UI Goal
     note as UIGoal
       La ventana Supplier Maintenance está diseñada para
       permitir a los usuarios gestionar los proveedores.
@@ -22,7 +23,7 @@ Package $systemName {
       de cada proveedor.
     end note
 
-    'Container
+    'Containers
     $supplierMaintenance()
 
     'Data Models
@@ -33,21 +34,22 @@ Package $systemName {
     $btDelete()
     $btExit()
    
-    'Relationships
+    'Relationships: Internal at UI package
     $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btSave", $type="*-u-")
     $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btDelete", $type="*-l-")
     $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btExit", $type="*-r-")
     $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "dmSupplier", $type="*--")
   }
+  
   package DataLayer {
     $classSuppliers()
   }
-
+  $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "suppliers", $type="-r->")
+  
   package "UI Supplier Search" {
     $supplierSearch()
   }
-
-  $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "suppliers", $type="-r->")
+  $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "supplierSearch", $type="-->") :CU Supplier Search
 }
 
 @enduml

@@ -19,8 +19,13 @@
     }
 !endprocedure
 
-!unquoted procedure $classSuppliersMaintenance()
+!unquoted procedure $classSupplierMaintenance()
     class supplierMaintenance <<Boundary>> {
+    }
+!endprocedure
+
+!unquoted procedure $classSupplierSearch()
+    class supplierSearch <<Boundary>> {
     }
 !endprocedure
 

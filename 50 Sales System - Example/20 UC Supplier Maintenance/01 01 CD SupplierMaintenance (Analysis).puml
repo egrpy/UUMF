@@ -8,9 +8,9 @@ skinparam classAttributeIconSize 0
 !include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/10%20Configurations.puml
 $dictionary_include()
 
-title CU Supplier Maintenance - Classes (System Analysis)
+title UC Supplier Maintenance - Classes (System Analysis)
 Package $systemName {
-    $classSuppliersMaintenance()
+    $classSupplierMaintenance()
     $classSuppliers()
 }
 
