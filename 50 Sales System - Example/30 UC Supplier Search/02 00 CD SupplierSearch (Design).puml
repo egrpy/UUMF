@@ -4,6 +4,13 @@ skinparam classAttributeIconSize 0
 'skinparam linetype ortho
 'skinparam linetype polyline
 
+'UI elements summary
+  'supplierSearch <<window>>
+    'label: lb_searchCritera
+    'Field: ef_searchCritera
+    'Button: bt_search
+    'Button: bt_exit
+
 'Includes
 !include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/10%20Configurations.puml
 $uumf_include()
@@ -24,22 +31,39 @@ Package $systemName {
     $supplierSearch()
 
     'Data Models
-    '$dmSuppliers()
+
+    'Labels
+    $uumf_label($name = "lb_searchCriteria", $labelDisplay = "Search Criteria")
+
+    'Edit Fields
+    $uumf_editField($name = "ef_searchCriteria", $dataType = "string", $initialValue = "null")
 
     'Buttons
-    $labelSearchCriteria()
+    $uumf_button($name = "btSearch", $labelDisplay = "Exit", $activate = "TRUE", $initialization = "FALSE")
+    $defClassEnd()
+
+    $uumf_button($name = "btExit", $labelDisplay = "Exit", $activate = "TRUE", $initialization = "FALSE")
+    $defClassEnd()
 
     'Relationships: Internal at UI package
-    '$uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btSave", $type="*-u-")
-    '$uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btDelete", $type="*-l-")
-    '$uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btExit", $type="*-r-")
-    '$uumf_associtarion($class1 = "supplierMaintenance", $class2 = "dmSupplier", $type="*--")
+    $uumf_associtarion($class1 = "supplierSearch", $class2 = "lb_searchCriteria", $type="*-l-")
+    $uumf_associtarion($class1 = "supplierSearch", $class2 = "ef_searchCriteria", $type="*--")
+    $uumf_associtarion($class1 = "lb_searchCriteria", $class2 = "ef_searchCriteria", $type="-")
+    $uumf_associtarion($class1 = "supplierSearch", $class2 = "btSearch", $type="*--")
+    $uumf_associtarion($class1 = "supplierSearch", $class2 = "btExit", $type="*--")
+
   }
   
   package DataLayer {
     $classSuppliers()
   }
-  $uumf_associtarion($class1 = "supplierSearch", $class2 = "suppliers", $type="-r->")
+  $uumf_associtarion($class1 = "supplierSearch", $class2 = "suppliers", $type="-d->")
+
+  package "OS" {
+    $clipboard
+  }
+  $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "supplierSearch", $type="-->") :CU Supplier Search
+
 }
 
 @enduml
