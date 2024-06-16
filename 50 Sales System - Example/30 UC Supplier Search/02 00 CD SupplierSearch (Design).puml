@@ -1,0 +1,53 @@
+@startuml
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+'skinparam linetype ortho
+'skinparam linetype polyline
+
+'Includes
+!include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/10%20Configurations.puml
+$uumf_include()
+$dictionary_include()
+
+title UC Supplier Search (System Design)
+
+Package $systemName {
+  Package "UI Supplier Search" {
+    '
+    'UI Goal
+    note as UIGoal
+      La ventana Supplier Search está diseñada para
+      permitir a los usuarios la búsqueda de proveedores
+      por cualquiera de los atributos de suppliers.
+    end note
+
+    'Containers
+    $supplierMaintenance()
+
+    'Data Models
+    $dmSuppliers()
+
+    'Buttons
+    $btSave()
+    $btDelete()
+    $btExit()
+   
+    'Relationships: Internal at UI package
+    $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btSave", $type="*-u-")
+    $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btDelete", $type="*-l-")
+    $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "btExit", $type="*-r-")
+    $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "dmSupplier", $type="*--")
+  }
+  
+  package DataLayer {
+    $classSuppliers()
+  }
+  $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "suppliers", $type="-r->")
+  
+  package "UI Supplier Search" {
+    $supplierSearch()
+  }
+  $uumf_associtarion($class1 = "supplierMaintenance", $class2 = "supplierSearch", $type="-->") :CU Supplier Search
+}
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+'left to right direction
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+'skinparam linetype ortho
+'skinparam linetype polyline
+
+'Includes
+!include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/10%20Configurations.puml
+$dictionary_include()
+
+title UC Supplier Search\nSequence Diagram (System Analysis)
+
+'Actores
+Actor Logistic
+
+Participant ":suplierSearch" <<Boundary>>
+Participant ":suppliers" <<Entity>>
+
+'Interacción
+activate Logistic
+activate ":suplierSearch"
+activate ":suppliers"
+Logistic -> ":suplierSearch" : searchOption(idSupplier, name, address, email)
+":suplierSearch" -> ":suppliers" : query(id :integer, nombre :string, RUC :string)
+":suplierSearch" <-- ":suppliers" :recordProveedores[]
+":suplierSearch" --> Logistic :SuppliersList[]
+
+@enduml

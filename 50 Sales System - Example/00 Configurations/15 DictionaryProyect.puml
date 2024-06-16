@@ -82,5 +82,8 @@
     $defClassEnd()
 !endprocedure
 
+!unquoted procedure $labelSearchCriteria()
+    $uumf_label($name = "labelSearchCriteria", $labelDisplay = "Search Criteria")
+!unquoted procedure $supplierSearch()    
 @enduml
 
