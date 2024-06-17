@@ -21,9 +21,9 @@ Participant ":suppliers" <<Entity>>
 activate Logistic
 activate ":suplierSearch"
 activate ":suppliers"
-Logistic -> ":suplierSearch" : searchOption(idSupplier, name, address, email)
-":suplierSearch" -> ":suppliers" : query(id :integer, nombre :string, RUC :string)
-":suplierSearch" <-- ":suppliers" :recordProveedores[]
-":suplierSearch" --> Logistic :SuppliersList[]
+Logistic -> ":suplierSearch" : searchCriteria(idSupplier, name, address, email)
+":suplierSearch" -> ":suppliers" : getsupplier(idSupplier :integer, name :string,\naddress :string, email :string)
+":suplierSearch" <-- ":suppliers" :recordSupplier
+":suplierSearch" --> Logistic :SuppliersList
 
 @enduml

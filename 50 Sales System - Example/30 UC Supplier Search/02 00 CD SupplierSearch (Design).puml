@@ -55,10 +55,9 @@ Package $systemName {
     'Relationships: Internal at UI package
     $uumf_associtarion($class1 = "supplierSearch", $class2 = "lb_searchCriteria", $type="*-l-")
     $uumf_associtarion($class1 = "supplierSearch", $class2 = "ef_searchCriteria", $type="*--")
-    $uumf_associtarion($class1 = "lb_searchCriteria", $class2 = "ef_searchCriteria", $type="-")
     $uumf_associtarion($class1 = "supplierSearch", $class2 = "btSearch", $type="*--")
     $uumf_associtarion($class1 = "supplierSearch", $class2 = "btExit", $type="*--")
-
+    $uumf_associtarion($class1 = "lb_searchCriteria", $class2 = "ef_searchCriteria", $type="->") :Asociado con
   }
   
   package DataLayer {
@@ -69,8 +68,7 @@ Package $systemName {
   package "OS" {
     $clipboard()
   }
-  $uumf_associtarion($class1 = "supplierSearch", $class2 = "clipboard", $type="-->")
-
+  $uumf_associtarion($class1 = "supplierSearch", $class2 = "clipboard", $type="-l->")
 }
 
 @enduml
