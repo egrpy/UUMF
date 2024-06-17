@@ -1,0 +1,12 @@
+@startuml
+!procedure $class_clipboard()
+    class clipboard <<OSService>> {
+        +setClipboard()
+        +getClipboard() 
+    }
+!endprocedure
+'Testing
+'$class_clipboard()
+@enduml
+
+

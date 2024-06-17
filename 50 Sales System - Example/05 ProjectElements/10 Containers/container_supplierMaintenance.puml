@@ -1,0 +1,9 @@
+@startuml
+!unquoted procedure $supplierMaintenance()
+    $uumf_window($name = "supplierMaintenance", $title = "Supplier Maintenance", $initialization="TRUE")
+        +open()
+    $defClassEnd()
+!endprocedure
+'Testing
+$uumf_window($name = "supplierMaintenance", $title = "Supplier Maintenance", $initialization="TRUE")
+@enduml

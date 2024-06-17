@@ -1,0 +1,8 @@
+@startuml
+!procedure $class_supplierSearch()
+    class supplierSearch <<Boundary>> {
+    }
+!endprocedure
+'Testing
+'$class_supplierSearch()
+@enduml

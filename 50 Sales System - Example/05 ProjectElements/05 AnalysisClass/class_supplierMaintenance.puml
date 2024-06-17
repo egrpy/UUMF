@@ -1,0 +1,8 @@
+@startuml
+!procedure $class_supplierMaintenance()
+    class supplierMaintenance <<Boundary>> {
+    }
+!endprocedure
+'Testing
+'$class_supplierMaintenance()
+@enduml
