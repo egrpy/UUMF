@@ -1,0 +1,25 @@
+@startuml
+!include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/10%20Configurations.puml
+$uumf_include()
+!unquoted procedure $datamodel_Suppliers()
+    $uumf_dataModel($name = "dmSupplier", $recordlayout="form")
+      '$defClassAttribute($visibility,  $name,          $dataType,  $defaultValue,  $label,         $pk,        $unique,    $required,  $readOnly   $hidden,    $calculate,     $format,        $pattern,   $constraint)
+      $defClassAttribute("+",           "id",           "integer",  "1",            "Id",           "FALSE",    "TRUE",     "TRUE",     "FALSE",    "FALSE",    "max(id + 1)",  "##",           "",         "id > 0")
+      $defClassAttribute("+",           "idSupplier",   "integer",  "",             "Id Supplier",  "TRUE",     "TRUE",     "TRUE",     "FALSE",    "FALSE",    "",             "######",       "",         "")
+      $defClassAttribute("+",           "name",         "string",   "",             "Name",         "FALSE",    "FALSE",    "TRUE",     "FALSE",    "FALSE",    "",             "Upper Case",   "",         "")
+      $defClassAttribute("+",           "address",      "string",   "",             "Address",      "FALSE",    "FALSE",    "TRUE",     "FALSE",    "FALSE",    "",             "Upper Case",   "",         "")
+      $defClassAttribute("+",           "email",        "string",   "",             "email",        "FALSE",    "FALSE",    "TRUE",     "FALSE",    "FALSE",    "",             "email format", "",         "")      
+      + setidSupplier()
+      + getidSuppplier()
+      + setrecordSupplier()
+      + setdataRequiered()
+      + validate()
+      + validateBeforeSave(recordSupplier) boolean
+      + save()
+      + delete()
+      + insertRow() :void
+    $defClassEnd()
+!endprocedure
+'Testing
+$datamodel_Suppliers()
+@enduml

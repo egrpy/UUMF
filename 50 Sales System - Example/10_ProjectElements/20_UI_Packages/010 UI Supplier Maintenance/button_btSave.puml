@@ -1,0 +1,10 @@
+@startuml
+!include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/10%20Configurations.puml
+$uumf_include()
+!unquoted procedure $button_btSave()
+    $uumf_button($name = "btSave", $labelDisplay = "Save", $activate = "TRUE", $initialization = "FALSE")
+    $defClassEnd()
+!endprocedure
+'Testing
+'$button_btSave()
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+!procedure $note_supplierMaintenanceGoal()
+    note as UIGoal
+        La ventana Supplier Maintenance está diseñada para
+        permitir a los usuarios gestionar los proveedores.
+        Los usuarios pueden añadir, editar y eliminar
+        proveedores, así como visualizar detalles específicos
+        de cada proveedor.
+    end note
+!endprocedure
+@enduml

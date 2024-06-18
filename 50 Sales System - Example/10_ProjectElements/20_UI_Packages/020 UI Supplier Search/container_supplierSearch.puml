@@ -1,0 +1,11 @@
+@startuml
+!include https://raw.githubusercontent.com/egrpy/UUMF/main/50%20Sales%20System%20-%20Example/00%20Configurations/10%20Configurations.puml
+$uumf_include()
+!unquoted procedure $supplierSearch()
+    $uumf_window($name = "supplierSearch", $title = "Supplier Search", $initialization="TRUE")
+        +open()
+    $defClassEnd()
+!endprocedure
+'Testing
+'$supplierSearch()
+@enduml
