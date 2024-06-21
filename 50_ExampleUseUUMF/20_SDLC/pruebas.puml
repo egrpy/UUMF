@@ -1,0 +1,8 @@
+@startuml
+!include /Users/egr/Projects/Plantuml/UUMF/UUMF/50_ExampleUseUUMF/00_Configurations/10_configProject.puml
+
+class A
+
+$class_supplierMaintenance()
+'$class_supplierSearch()
+@enduml

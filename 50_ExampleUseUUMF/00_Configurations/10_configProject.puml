@@ -1,0 +1,27 @@
+@startuml
+
+'!$systemName        = '"Sales System"'
+'!$mainFolder        = "/Users/egr/Projects/Plantuml/UUMF/UUMF/50_ExampleUseUUMF/"
+'!$projectElements   = "10_ProjectElements/"
+'    !$analysisClass = "10_AnalysisClass/"
+'    !$UI_Packages   = "20_UI_Packages/"
+'    !$Entities      = "30_Entities/"
+'    !$OS            = "40_OS/"
+
+!unquoted procedure $uumf_include()
+    !include https://raw.githubusercontent.com/egrpy/UUMF/main/02%20Framework/uumf_defClass.puml    
+!endprocedure
+
+!unquoted procedure $SqlUMLSpec_include()
+    !include https://raw.githubusercontent.com/egrpy/SqlUMLSpec/main/sqlUMLSpecFunctions.puml
+!endprocedure
+
+!unquoted procedure $includeElement($element)
+    '!if ($element = "class_supplierMaintenance")
+        !include /Users/egr/Projects/Plantuml/UUMF/UUMF/50_ExampleUseUUMF/10_ProjectElements/10_AnalysisClass/class_supplierMaintenance.puml
+    '!elseif ($element = "$class_supplierSearch")
+        !include /Users/egr/Projects/Plantuml/UUMF/UUMF/50_ExampleUseUUMF/10_ProjectElements/10_AnalysisClass/class_supplierSearch.puml
+    '!endif
+!endprocedure
+
+@enduml
