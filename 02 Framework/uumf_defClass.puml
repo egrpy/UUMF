@@ -118,7 +118,7 @@
 '--------------------------------------------------------------------------------
 'Declare Relationships
 '--------------------------------------------------------------------------------
-!procedure $uumf_associtarion($class1 = "A", $class2 = "B", $type="-->")
+!procedure $uumf_association($class1 = "A", $class2 = "B", $type="-->")
   $class1 $type $class2
 !endprocedure
 
